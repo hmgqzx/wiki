@@ -10,7 +10,9 @@
                         <%- partial('post/category') %>
                         <%- partial('post/tag') %>
                         <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>
-                        <% if (theme.history_control.enable) { 
+                        <%- partial('post/siteUV') %>
+                        <%- partial('post/pagePV') %>
+                        <% if (theme.history_control.enable) {
                             let repertory_address = `${theme.history_control.server_link}/${theme.history_control.user}/${theme.history_control.repertory}`;
                             let file_path = `${theme.history_control.branch}/source/${post.source}`;%>
                             <div class="article-meta-button">
@@ -58,7 +60,7 @@
             <%- post.content %>
             </div>
         <% } else { %>
-            </div>   
+            </div>
             <div class="article-more-link">
                 <a href="<%- url_for(post.path) %>#more"><%= __('article.more') %></a>
             </div>
@@ -80,5 +82,5 @@
 <!-- baidu url auto push script -->
 <script type="text/javascript">
     !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
-</script>     
+</script>
 <% } %>

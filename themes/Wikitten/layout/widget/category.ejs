@@ -7,8 +7,7 @@
                 <i class="fa fa-angle-double-<%- theme.customize.category_perExpand ? 'up' : 'down' %> fa-2x"></i>
             </a>
         </h3>
-        
-        <% 
+        <%
             function listCategories(categories, posts) {
                 function layArticles(posts) {
                     var classifiedArticles = {'_root': []};
@@ -44,8 +43,8 @@
                   if(!tree.name) tree = {"name": "_root", "_id": "_root", "children": [], "articles": classifiedArticles['_root']};
                   prepareQuery(categories, parent).forEach(function(cat, i) {
                       var now_category = {
-                          "_id": cat._id, 
-                          "name": cat.name, 
+                          "_id": cat._id,
+                          "name": cat.name,
                           "children": [],
                           "articles": classifiedArticles[cat._id]
                       };
@@ -65,98 +64,109 @@
                 return categoriesTree;
             }
         %>
-        <% 
+            <%
             function visitTreePosts(branch, perExpand) {
-             %> <ul class="unstyled" id="tree" <% if(perExpand) { %>style="display: block;"<% } %>> <%
+             %>
+                <ul class="unstyled" id="tree" <% if(perExpand) { %>style="display: block;"
+                    <% } %>>
+                        <%
                 if(branch.children && branch.children.length) {
                     branch.children.forEach(function(category){
                     %>
-                    <li class="directory<%- category.selected ? ' open' : '' %>">
-                        <a href="#" data-role="directory">
+                            <li class="directory<%- category.selected ? ' open' : '' %>">
+                                <a href="#" data-role="directory">
                             <i class="fa fa-folder<%- (perExpand || category.selected) ? '-open' : '' %>"></i>
                             &nbsp;
                             <%- category.name %>
                         </a>
-                        <% visitTreePosts(category, perExpand) %>
-                    </li> 
-                    <%  
-                    });
-                } 
-                if(branch.articles && branch.articles.length) {
-                    branch.articles.forEach(function(post){
-                        %> <li class="file<%- (is_post() && post._id == page._id) ? ' active' : '' %>"><a href="<%- post.path %>"><%- post.title %></a></li> <%
+                                <% visitTreePosts(category, perExpand) %>
+                            </li>
+                            <%
                     });
                 }
-             %> </ul> <%
+                if(branch.articles && branch.articles.length) {
+                    branch.articles.forEach(function(post){
+                        %>
+                                <li class="file<%- (is_post() && post._id == page._id) ? ' active' : '' %>">
+                                    <a href="<%- post.path %>">
+                                        <%- post.title %>
+                                    </a>
+                                </li>
+                                <%
+                    });
+                }
+             %>
+                </ul>
+                <%
             }
         %>
-        <%
+                    <%
             var categoriesTree = listCategories(site.categories, site.posts);
             visitTreePosts(categoriesTree, theme.customize.category_perExpand);
         %>
     </div>
     <script>
-        $(document).ready(function() {
-            var iconFolderOpenClass  = 'fa-folder-open';
-            var iconFolderCloseClass = 'fa-folder';
-            var iconAllExpandClass = 'fa-angle-double-down';
-            var iconAllPackClass = 'fa-angle-double-up';
-            // Handle directory-tree expansion:
-            // 左键单独展开目录
-            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
-                event.preventDefault();
+    $(document).ready(function() {
+        var iconFolderOpenClass = 'fa-folder-open';
+        var iconFolderCloseClass = 'fa-folder';
+        var iconAllExpandClass = 'fa-angle-double-down';
+        var iconAllPackClass = 'fa-angle-double-up';
+        // Handle directory-tree expansion:
+        // 左键单独展开目录
+        $(document).on('click', '#categories a[data-role="directory"]', function(event) {
+            event.preventDefault();
 
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconFolderOpenClass);
-                var subtree = $(this).siblings('ul');
-                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
-                if (expanded) {
-                    if (typeof subtree != 'undefined') {
-                        subtree.slideUp({ duration: 100 });
-                    }
-                    icon.addClass(iconFolderCloseClass);
-                } else {
-                    if (typeof subtree != 'undefined') {
-                        subtree.slideDown({ duration: 100 });
-                    }
-                    icon.addClass(iconFolderOpenClass);
+            var icon = $(this).children('.fa');
+            var expanded = icon.hasClass(iconFolderOpenClass);
+            var subtree = $(this).siblings('ul');
+            icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+            if (expanded) {
+                if (typeof subtree != 'undefined') {
+                    subtree.slideUp({ duration: 100 });
                 }
-            });
-            // 右键展开下属所有目录
-            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
-                event.preventDefault();
-                
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconFolderOpenClass);
-                var listNode = $(this).siblings('ul');
-                var subtrees = $.merge(listNode.find('li ul'), listNode);
-                var icons = $.merge(listNode.find('.fa'), icon);
-                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
-                if(expanded) {
-                    subtrees.slideUp({ duration: 100 });
-                    icons.addClass(iconFolderCloseClass);
-                } else {
-                    subtrees.slideDown({ duration: 100 });
-                    icons.addClass(iconFolderOpenClass);
+                icon.addClass(iconFolderCloseClass);
+            } else {
+                if (typeof subtree != 'undefined') {
+                    subtree.slideDown({ duration: 100 });
                 }
-            })
-            // 展开关闭所有目录按钮
-            $(document).on('click', '#allExpand', function (event) {
-                event.preventDefault();
-                
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconAllExpandClass);
-                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
-                if(expanded) {
-                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
-                    $('#categories li ul').slideDown({ duration: 100 });
-                    icon.addClass(iconAllPackClass);
-                } else {
-                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
-                    $('#categories li ul').slideUp({ duration: 100 });
-                    icon.addClass(iconAllExpandClass);
-                }
-            });  
+                icon.addClass(iconFolderOpenClass);
+            }
         });
+        // 右键展开下属所有目录
+        $('#categories a[data-role="directory"]').bind("contextmenu", function(event) {
+            event.preventDefault();
+
+            var icon = $(this).children('.fa');
+            var expanded = icon.hasClass(iconFolderOpenClass);
+            var listNode = $(this).siblings('ul');
+            var subtrees = $.merge(listNode.find('li ul'), listNode);
+            var icons = $.merge(listNode.find('.fa'), icon);
+            icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+            if (expanded) {
+                subtrees.slideUp({ duration: 100 });
+                icons.addClass(iconFolderCloseClass);
+            } else {
+                subtrees.slideDown({ duration: 100 });
+                icons.addClass(iconFolderOpenClass);
+            }
+        })
+        // 展开关闭所有目录按钮
+        $(document).on('click', '#allExpand', function(event) {
+            event.preventDefault();
+
+            var icon = $(this).children('.fa');
+            var expanded = icon.hasClass(iconAllExpandClass);
+            icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+            if (expanded) {
+                $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                $('#categories li ul').slideDown({ duration: 100 });
+                icon.addClass(iconAllPackClass);
+            } else {
+                $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                $('#categories li ul').slideUp({ duration: 100 });
+                icon.addClass(iconAllExpandClass);
+            }
+        });
+    });
     </script>
-<% } %>
+    <% } %>

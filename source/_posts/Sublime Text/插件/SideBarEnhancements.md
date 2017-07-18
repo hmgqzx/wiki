@@ -1,3 +1,7 @@
+---
+title: SideBarEnhancements
+---
+
 `SideBarEnhancements`是一个快捷键增强插件，使用最广泛的就是用来定义浏览器预览文件。
 
 打开`Package Setting > Side Bar > Key Bindings - User`即可自定义浏览器预览快捷键，如下代码定义`chrome`所示：
