@@ -5,5 +5,7 @@
         <section id="comments"> <%- partial('comment/duoshuo') %> </section>
     <% } else if (theme.comment.youyan) { %>
         <section id="comments"> <%- partial('comment/youyan') %> </section>
+    <% } else if (theme.comment.gitment) { %>
+        <div id="gitment-container"> <%- partial('comment/gitment') %> </div>
     <% } %>
 <% } %>
