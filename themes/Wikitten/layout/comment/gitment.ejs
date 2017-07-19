@@ -1,0 +1,17 @@
+<% if (typeof(script) !== 'undefined' && script) { %>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+    var gitment = new Gitment({
+        id: window.location.href,
+        owner: 'hmgqzx',
+        repo: 'wiki',
+        oauth: {
+            client_id: '06cd001abdd0c928c9da',
+            client_secret: '6606af8c6558901de5fce049b458afc980e96ef3',
+        },
+    })
+    gitment.render('gitment-container')
+    </script>
+<% } else { %>
+<% } %>
