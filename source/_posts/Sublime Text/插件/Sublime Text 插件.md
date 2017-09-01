@@ -61,3 +61,26 @@ title: Sublime Text 插件
 
 > 手下的几个码农的代码风格与自己并不相同，经常代码汇总过来我都不知道他们改了什么，这个插件还是很给力的。
 
+### sidebar
+
+```
+[
+    //borwser preview.
+    {
+        "keys": ["f2"],
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "/Applications/Google Chrome.app",
+            "extensions": ".html"
+        }
+    }
+]
+```
+
+**ColorPick**
+
+快捷键设置
+
+`/Users/me/Library/Application Support/Sublime Text 3/Packages/ColorPick/Default (OSX).sublime-keymap`
+
