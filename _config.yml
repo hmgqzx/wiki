@@ -47,14 +47,32 @@ highlight:
 
 ## Markdown
 ## https://github.com/hexojs/hexo-renderer-marked
-marked:
-  gfm: true
-  pedantic: false
-  sanitize: true
-  tables: true
-  breaks: true
-  smartLists: true
-  smartypants: true
+# marked:
+#   gfm: true
+#   pedantic: false
+#   sanitize: true
+#   tables: true
+#   breaks: true
+#   smartLists: true
+#   smartypants: true
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+
 
 # Category & Tag
 default_category: root
