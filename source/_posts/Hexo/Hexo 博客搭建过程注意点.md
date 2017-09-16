@@ -91,7 +91,7 @@ GitHub上建立的每个项目(`repository`)都是可以拥有独立主页的，
 
 #### Github 设置
 
-详细步骤[^2]
+详细步骤参考链接[^2]
 
 ``` 
 ~/my-personal-projects/github-repo/motors not empty, please run hexo init on an empty folder and then copy your files into it
