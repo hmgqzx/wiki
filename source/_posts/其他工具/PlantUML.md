@@ -4,6 +4,12 @@ title: PlantUML —— UML 绘图工具
 
 PlantUML 是一个画图脚本语言，用它可以方便地画出许多UML图
 
+## 官方文档
+
+[PlantUML 语言参考文档](http://translate.plantuml.com/zh/PlantUML_Language_Reference_Guide_ZH.pdf) #中文
+
+[PlantUML Language Reference Guide](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf) 
+
 ## 特点
 
 ### 支持种类
@@ -64,12 +70,6 @@ Sublime的plantuml插件有点鸡肋。Chrome 下的插件 [PlantUML Viewer](htt
 - 使用方括号 `[xxx]` 来表示组件
 - 可以把几个组件合并成一个包，可以使用的关键字为 `package, node, folder, frame, cloud, database`。不同的关键字图形不一样。
 
-### 状态机
-
 ## 参考
-
-[使用 Sublime + PlantUML 高效地画图 - 简书](http://www.jianshu.com/p/e92a52770832)
-
-[PlantUML Language Reference Guide](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf) #官方 pdf 文档，不着急的直接看这个
 
 [使用 Sublime + PlantUML 高效地画图 - 简书](http://www.jianshu.com/p/e92a52770832) #这个是中文的，入门还可以
