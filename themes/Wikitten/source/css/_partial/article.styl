@@ -63,7 +63,7 @@ div.article-meta-button
         text-transform: none
         &:hover
             background: #333
-            
+
 .article-inner .article-meta
         line-height: 20px
         background: color-meta-head
@@ -74,8 +74,8 @@ div.article-meta-button
         border-radius: 4px 4px 0 0
         color: #fff
         a
-            color: #fff 
-            
+            color: #fff
+
 .article-category
     .fa-angle-right
         margin: 0 5px
@@ -93,11 +93,10 @@ div.article-meta-button
     line-height: line-height
     p, table
         line-height: line-height
-        margin: line-height 0
+        margin: margin-height 0
     h1, h2, h3, h4, h5, h6
         font-weight: bold
         line-height: line-height-title
-        margin: line-height-title 0
         display: table
         .headerlink
             &::before
@@ -110,6 +109,15 @@ div.article-meta-button
             text-decoration: none
             &::before
                 visibility: visible
+    h1, h2
+        margin-top: 0.5em
+        font-family: STSongti-SC-Regular
+        border-bottom: 1px solid #cccccc
+        padding-bottom: .4em
+    h3
+        margin: 0.9em 0
+    h4,h5,h6
+        margin: 0.1em 0
     a
         color: color-link
         text-decoration: none
@@ -121,6 +129,11 @@ div.article-meta-button
         li.task-list
             margin-left: 0
             list-style: none
+        margin: margin-height
+    ul
+        line-height: 2.2em
+    ul,ol
+        padding-left: 30px
     img, video
         max-width: 100%
         height: auto
@@ -140,30 +153,17 @@ div.article-meta-button
         border-bottom: 1px solid color-border
         padding: 10px 0
     blockquote
-        position: static
-        font-family: font-serif
-        font-size: 1.1em
-        margin: 0 -20px
-        padding: 10px 20px 10px 54px
-        background: #fcfcfc
-        border-left: 4px solid #eee
-        &:before
-            top: 20px
-            left: -40px
-            float: left
-            content: "\f10d"
-            color: #e2e2e2
-            font-size: 32px
-            font-family: FontAwesome
-            text-align: center
-            position: relative
+        font-style: italic
+        border-left: 4px solid #dddddd
+        padding: 0 15px
+        color: #777777
         footer
             font-size: font-size
-            margin: line-height 0
+            margin: margin-height 0
             font-family: font-sans
             cite
                 &:before
-                    content: "â€”"
+                    content: "¡ª"
                     padding: 0 0.5em
     .pullquote
         text-align: left
