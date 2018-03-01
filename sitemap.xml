@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/tags/index.html</loc>
+    <loc>https://hmgqzx.github.io/wiki/index/</loc>
     
-    <lastmod>2018-03-01T18:50:13.000Z</lastmod>
+    <lastmod>2018-03-01T20:05:03.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/about/index.html</loc>
+    <loc>https://hmgqzx.github.io/wiki/tags/index.html</loc>
     
     <lastmod>2018-03-01T18:50:13.000Z</lastmod>
     
@@ -23,7 +23,14 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Hexo/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
+    <loc>https://hmgqzx.github.io/wiki/about/index.html</loc>
+    
+    <lastmod>2018-03-01T18:50:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -31,13 +38,6 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/Git/Git-%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/LaTex/LaTeX/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
+    <loc>https://hmgqzx.github.io/wiki/LaTex/LaTeX/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -457,7 +457,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/index/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Hexo/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
