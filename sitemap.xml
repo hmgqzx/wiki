@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Git/Git-%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Hexo/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Git/Git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Git/Git-%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -58,6 +58,13 @@
   </url>
   
   <url>
+    <loc>https://hmgqzx.github.io/wiki/Mac/Mac%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hmgqzx.github.io/wiki/Mac/QuickLook%20%E9%A2%84%E8%A7%88%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -72,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Mac/Mac%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E5%B8%B8%E9%87%8F/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -93,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E5%B8%B8%E9%87%8F/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hmgqzx.github.io/wiki/Mac/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -108,13 +108,6 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Python/pyc%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -142,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Unix/ssh/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Python/pyc%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -156,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/PlantUML/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Unix/ssh/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -170,7 +163,14 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Git/Git%20%E4%B8%AD%E6%8F%90%E4%BA%A4%E6%B3%A8%E9%87%8A%E7%9B%B8%E5%85%B3/Git-%E6%8F%90%E4%BA%A4%E5%A4%A7%E6%AE%B5%E6%B3%A8%E9%87%8A/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/PlantUML/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/Git/Git%20%E5%91%BD%E4%BB%A4/Git-alias%E5%88%AB%E5%90%8D/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -184,7 +184,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Git/Git%20%E5%91%BD%E4%BB%A4/Git-alias%E5%88%AB%E5%90%8D/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Git/Git%20%E4%B8%AD%E6%8F%90%E4%BA%A4%E6%B3%A8%E9%87%8A%E7%9B%B8%E5%85%B3/Git-%E6%8F%90%E4%BA%A4%E5%A4%A7%E6%AE%B5%E6%B3%A8%E9%87%8A/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -226,6 +226,13 @@
   </url>
   
   <url>
+    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/PlainTasks/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hmgqzx.github.io/wiki/Python/%E5%B8%B8%E7%94%A8%E6%9C%AD%E8%AE%B0/Python%20%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -233,21 +240,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Python/%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95/%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Hexo/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
+    <loc>https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -255,6 +248,13 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/SideBarEnhancements/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -275,14 +275,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E5%AF%B9%E4%B9%99%E9%85%B0%E6%B0%A8%E5%9F%BA%E9%85%9A/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E5%B8%83%E6%B4%9B%E8%8A%AC/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E5%85%83%E7%90%86%E8%AE%BA/%E5%85%83%E5%AD%A6%E4%B9%A0/%E5%85%83%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -296,7 +289,14 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E5%85%83%E7%90%86%E8%AE%BA/%E5%85%83%E5%AD%A6%E4%B9%A0/%E5%85%83%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E5%B8%83%E6%B4%9B%E8%8A%AC/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E5%AF%B9%E4%B9%99%E9%85%B0%E6%B0%A8%E5%9F%BA%E9%85%9A/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -310,13 +310,6 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/BracketHighlight/BracketHighlight%20%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Emmet/Emmet%20%E8%AF%AD%E6%B3%95/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -324,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/back/Barbell%20Deadlift/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/BracketHighlight/BracketHighlight%20%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -332,6 +325,13 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/arms/Barbell%20Curl/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/back/Barbell%20Deadlift/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -352,13 +352,6 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/legs/Squat/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/shoulder/Standing%20Military%20Press/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -366,7 +359,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2014%20-%20%E7%BB%84%E7%BB%87%E7%9B%B4%E7%BA%BF%E5%9E%8B%E4%BB%A3%E7%A0%81/14.1%20%E8%AF%AD%E5%8F%A5%E5%BF%85%E9%A1%BB%E6%98%8E%E7%A1%AE%E9%A1%BA%E5%BA%8F/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/legs/Squat/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -374,6 +367,13 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2014%20-%20%E7%BB%84%E7%BB%87%E7%9B%B4%E7%BA%BF%E5%9E%8B%E4%BB%A3%E7%A0%81/14.2%20%E9%A1%BA%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E8%AF%AD%E5%8F%A5/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2014%20-%20%E7%BB%84%E7%BB%87%E7%9B%B4%E7%BA%BF%E5%9E%8B%E4%BB%A3%E7%A0%81/14.1%20%E8%AF%AD%E5%8F%A5%E5%BF%85%E9%A1%BB%E6%98%8E%E7%A1%AE%E9%A1%BA%E5%BA%8F/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -394,6 +394,13 @@
   </url>
   
   <url>
+    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2016%20%E6%8E%A7%E5%88%B6%E5%BE%AA%E7%8E%AF%20/16.4%20%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2016%20%E6%8E%A7%E5%88%B6%E5%BE%AA%E7%8E%AF%20/16.3%20%E8%BD%BB%E6%9D%BE%E5%88%9B%E5%BB%BA%E5%BE%AA%E7%8E%AF%E2%80%94%E2%80%94%E7%94%B1%E5%86%85%E8%80%8C%E5%A4%96/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -408,13 +415,6 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2016%20%E6%8E%A7%E5%88%B6%E5%BE%AA%E7%8E%AF%20/16.4%20%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.1%20%E5%B8%83%E5%B0%94%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -422,7 +422,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.2%20%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5%EF%BC%88%E8%AF%AD%E5%8F%A5%E5%9D%97%EF%BC%89/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.5%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%BB%93%E6%9E%84%E5%8C%96%E7%BC%96%E7%A8%8B/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -430,6 +430,13 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.3%20%E7%A9%BA%E8%AF%AD%E5%8F%A5/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.2%20%E5%A4%8D%E5%90%88%E8%AF%AD%E5%8F%A5%EF%BC%88%E8%AF%AD%E5%8F%A5%E5%9D%97%EF%BC%89/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -450,13 +457,6 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.5%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%BB%93%E6%9E%84%E5%8C%96%E7%BC%96%E7%A8%8B/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hmgqzx.github.io/wiki/index/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -464,14 +464,14 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Git/Git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/PlainTasks/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Python/%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95/%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
