@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>19.1 布尔表达式 | Hmgqzx&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="19.1 布尔表达式" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="除了顺序结构外，所有的控制结构都要依赖布尔表达式的求值  使用 true 和 false 做布尔判断 请在布尔表达式的判断里使用 true 和 false 来代表真和假，而不要用 0 和 1 等数值。如果你的语言不直接支持这些写法，那么就用预处理宏或者全局变量来创建它们。 使用 0 和 1等数值的坏处是：降低了可读性，而且意义有时是非常含混的，有时你甚至不能确定它是否是用来做布尔判断的  隐式地比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="19.1 布尔表达式">
+<meta property="og:url" content="https://hmgqzx.github.io/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/index.html">
+<meta property="og:site_name" content="Hmgqzx&#39;s Wiki">
+<meta property="og:description" content="除了顺序结构外，所有的控制结构都要依赖布尔表达式的求值  使用 true 和 false 做布尔判断 请在布尔表达式的判断里使用 true 和 false 来代表真和假，而不要用 0 和 1 等数值。如果你的语言不直接支持这些写法，那么就用预处理宏或者全局变量来创建它们。 使用 0 和 1等数值的坏处是：降低了可读性，而且意义有时是非常含混的，有时你甚至不能确定它是否是用来做布尔判断的  隐式地比">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-01T18:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="19.1 布尔表达式">
+<meta name="twitter:description" content="除了顺序结构外，所有的控制结构都要依赖布尔表达式的求值  使用 true 和 false 做布尔判断 请在布尔表达式的判断里使用 true 和 false 来代表真和假，而不要用 0 和 1 等数值。如果你的语言不直接支持这些写法，那么就用预处理宏或者全局变量来创建它们。 使用 0 和 1等数值的坏处是：降低了可读性，而且意义有时是非常含混的，有时你甚至不能确定它是否是用来做布尔判断的  隐式地比">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hmgqzx&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/wiki/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/wiki/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/wiki/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/wiki/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/wiki/css/style.css">
+    <script src="/wiki/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/wiki/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102767719-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d7a46b5b4bfe6d00a9059464ac12bac7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/wiki/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hmgqzx&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/wiki/">首页</a>
+                
+                    <a class="main-nav-link" href="/wiki/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/wiki/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/wiki/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/wiki/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/wiki/',
+        CONTENT_URL: '/wiki/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/wiki/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/wiki/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            42
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/42/有限状态机/">有限状态机 FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 中提交注释相关
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 中提交注释相关/Git-提交大段注释/">Git 中提交一大段、多行的注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 命令/Git-常用命令/">Git 常用命令</a></li>  <li class="file"><a href="/wiki/Git/Git 命令/Git-alias别名/">Git 命令的 alias 别名</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Git/Git-其他相关问题/">Git 其他常见相关问题</a></li>  <li class="file"><a href="/wiki/Git/Git-学习资源/">Git 的学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Hexo/Hexo 博客搭建过程注意点/">Hexo 博客搭建过程注意点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/JavaScript/回调函数/">JavaScript 中的回调</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LaTex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/LaTex/LaTeX/">LaTeX</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mac
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用命令行软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用命令行软件/Aria2/">Aria 2 —— Mac 的下载利器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用软件常用快捷键
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/Chrome/">Chrome 易忘快捷键</a></li>  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/index/">Mac OS X 下常用软件的常用快捷键</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Mac/Dock/">Dock</a></li>  <li class="file"><a href="/wiki/Mac/QuickLook 预览增强插件/">QuickLook 预览增强插件</a></li>  <li class="file"><a href="/wiki/Mac/dotfiles/">dotfiles</a></li>  <li class="file"><a href="/wiki/Mac/Mac 命令行工具/">Mac OS X 里特有的那些命令行</a></li>  <li class="file"><a href="/wiki/Mac/homebrew/">Homebrew</a></li>  <li class="file"><a href="/wiki/Mac/使用技巧/">Mac 使用技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资源推荐
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/学习资源推荐/Python在线学习资源/">Python 的在线学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/常用札记/Python 字典/">Python 字典的常用知识</a></li>  <li class="file"><a href="/wiki/Python/常用札记/Python 字符串/">Python 字符串的常用知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            模块用法
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/模块用法/模块导入/">Python 模块的导入</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Python/Python 数据持久化/">Python 数据持久化</a></li>  <li class="file"><a href="/wiki/Python/Python 常量/">Python 中的常量</a></li>  <li class="file"><a href="/wiki/Python/Python 虚拟环境/">Pyenv —— Python版本管理工具</a></li>  <li class="file"><a href="/wiki/Python/pyc文件/">pyc文件</a></li>  <li class="file"><a href="/wiki/Python/collections模块/">Python collections模块</a></li>  <li class="file"><a href="/wiki/Python/pickle/">pickle</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Sublime Text
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            BracketHighlight
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/BracketHighlight/BracketHighlight 配置/">BracketHighlight 配置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Emmet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/Emmet/Emmet 语法/">Emmet 语法简单总结</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/插件/PlainTasks/">PlainTasks</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/Sublime Text 插件/">Sublime Text 插件</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/SideBarEnhancements/">SideBarEnhancements</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/Sublime Text 主题/">Sublime Text 主题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Unix
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Unix/ssh/">SSH</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim 札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vim/Vim 札记/Vim中设置tab与空格/">Vim 中设置 tab 自动转换为 4 个空格</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Zsh
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Zsh/插件/autojump/">autojump 自动跳转目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Zsh/zsh-安装/">Zsh 安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            书籍阅读笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                             Code Complete 代码大全
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 14 - 组织直线型代码
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.1 语句必须明确顺序/">14.1 语句必须明确顺序</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.2 顺序无关的语句/">14.2 顺序无关的语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 15 使用条件语句
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 15 使用条件语句/15.2 case 语句/">15.2 case 语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 16 控制循环 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.1  选择循环的种类/">16.1  选择循环的种类</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.3 轻松创建循环——由内而外/">16.3 轻松创建循环——由内而外</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.2 循环的控制/">16.2 循环的控制</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.4 循环和数组的关系/">16.4 循环和数组的关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Chapter 19 一般控制问题
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/">19.1 布尔表达式</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.2 复合语句（语句块）/">19.2 复合语句（语句块）</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.3 空语句/">19.3 空语句</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.4 驯服危险的深层嵌套/">19.4 驯服危险的深层嵌套</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/">19.6 控制结构与复杂度</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.5 编程基础：结构化编程/">19.5 编程基础：结构化编程</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            健身
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动作
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            abs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/abs/Plank/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arms
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/arms/Barbell Curl/">Barbell Curl 杠铃弯举</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            back
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/back/Barbell Deadlift/">Barbell Deadlift</a></li>  <li class="file"><a href="/wiki/健身/动作/back/Wide-Grip Lat Pulldown/">Wide-Grip Lat Pulldown</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            chest
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/chest/Dumbbell Bench Press/">Dumbbell Bench Press</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            legs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/legs/Squat/">Squat 深蹲</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            shoulder
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/shoulder/Standing Military Press/">Standing Military Press</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元理论
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/元理论/元学习/元学习理论/">元学习理论</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/其他工具/PlantUML/">PlantUML —— UML 绘图工具</a></li>  <li class="file"><a href="/wiki/其他工具/nodePPT/">nodePPT —— 自动化生成 PPT</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            感冒
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/生活/感冒/对乙酰氨基酚/">对乙酰氨基酚</a></li>  <li class="file"><a href="/wiki/生活/感冒/布洛芬/">布洛芬</a></li>  <li class="file"><a href="/wiki/生活/感冒/感冒/">感冒</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Hmgqzx's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/wiki/categories/书籍阅读笔记/">书籍阅读笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/wiki/categories/书籍阅读笔记/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/wiki/categories/书籍阅读笔记/编程/Code-Complete-代码大全/"> Code Complete 代码大全</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/wiki/categories/书籍阅读笔记/编程/Code-Complete-代码大全/Chapter-19-一般控制问题/">Chapter 19 一般控制问题</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/">
+            <time datetime="2018-03-01T18:13:19.000Z" itemprop="datePublished">2018-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/raw/master/source/_posts/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/edit/master/source/_posts/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/commits/master/source/_posts/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            19.1 布尔表达式
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-true-和-false-做布尔判断"><span class="toc-number">1.</span> <span class="toc-text"> 使用 true 和 false 做布尔判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#隐式地比较布尔值可以使判断语句更清晰"><span class="toc-number">1.1.</span> <span class="toc-text"> 隐式地比较布尔值，可以使判断语句更清晰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简化复杂的表达式"><span class="toc-number">2.</span> <span class="toc-text"> 简化复杂的表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断中项数很多的情况"><span class="toc-number">2.1.</span> <span class="toc-text"> 判断中项数很多的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将复杂的表达式拆分"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 将复杂的表达式拆分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将复杂的表达式提取为布尔函数"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 将复杂的表达式提取为布尔函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#涉及到多个变量的复杂判断"><span class="toc-number">2.2.</span> <span class="toc-text"> 涉及到多个变量的复杂判断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用决策表来代替复杂的条件"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 使用决策表来代替复杂的条件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写肯定形式的布尔表达式"><span class="toc-number">3.</span> <span class="toc-text"> 编写肯定形式的布尔表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-if-else-语句中"><span class="toc-number">3.1.</span> <span class="toc-text"> 在 if else 语句中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆转含义更换变量的名字"><span class="toc-number">3.2.</span> <span class="toc-text"> 逆转含义，更换变量的名字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用狄摩根定理"><span class="toc-number">3.3.</span> <span class="toc-text"> 利用狄摩根定理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用括号使布尔表达式更清晰"><span class="toc-number">4.</span> <span class="toc-text"> 用括号使布尔表达式更清晰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用如下技巧使得括号准确配对"><span class="toc-number">4.1.</span> <span class="toc-text"> 使用如下技巧使得括号准确配对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把布尔表达式全部括在括号里面"><span class="toc-number">4.2.</span> <span class="toc-text"> 把布尔表达式全部括在括号里面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解布尔表达式的求值方式"><span class="toc-number">5.</span> <span class="toc-text"> 理解布尔表达式的求值方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#短路求值"><span class="toc-number">5.1.</span> <span class="toc-text"> 短路求值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑运算符-和"><span class="toc-number">5.2.</span> <span class="toc-text"> 逻辑运算符 &amp; 和 |</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">5.3.</span> <span class="toc-text"> 例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按照数轴的顺序来书写数值表达式"><span class="toc-number">6.</span> <span class="toc-text"> 按照数轴的顺序来书写数值表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与-0-比较时的指导原则"><span class="toc-number">7.</span> <span class="toc-text"> 与 0 比较时的指导原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布尔表达式的常见问题"><span class="toc-number">8.</span> <span class="toc-text"> 布尔表达式的常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-c-家族语言中可以使用把常量放在比较的左端这一技巧"><span class="toc-number">8.1.</span> <span class="toc-text"> 在 C 家族语言中，可以使用把常量放在比较的左端这一技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-c中可以考虑创建预处理宏来替换-不得已才这样做"><span class="toc-number">8.2.</span> <span class="toc-text"> 在 C++中，可以考虑创建预处理宏来替换 &amp;&amp;、||、==（不得已才这样做）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-java-中要理解-ab-和-aequalsb-的差异"><span class="toc-number">8.3.</span> <span class="toc-text"> 在 Java 中，要理解 a==b 和 a.equals(b) 的差异</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>除了顺序结构外，所有的控制结构都要依赖布尔表达式的求值</p>
+<h2 id="使用-true-和-false-做布尔判断"><a class="markdownIt-Anchor" href="#使用-true-和-false-做布尔判断"></a> 使用 true 和 false 做布尔判断</h2>
+<p>请在布尔表达式的判断里使用 true 和 false 来代表真和假，而不要用 0 和 1 等数值。如果你的语言不直接支持这些写法，那么就用预处理宏或者全局变量来创建它们。</p>
+<p>使用 0 和 1等数值的坏处是：降低了可读性，而且意义有时是非常含混的，有时你甚至不能确定它是否是用来做布尔判断的</p>
+<h3 id="隐式地比较布尔值可以使判断语句更清晰"><a class="markdownIt-Anchor" href="#隐式地比较布尔值可以使判断语句更清晰"></a> 隐式地比较布尔值，可以使判断语句更清晰</h3>
+<p>把表达式作为布尔表达式（而不需要“画蛇添足”地再和 true/false 直接比较一次），可以让表达式里的项数更少、可读性更高（更像英语中的对话）</p>
+<p>画蛇添足的直接比较：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (printerError == <span class="keyword">False</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>隐式比较：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">not</span> printerError):</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h2 id="简化复杂的表达式"><a class="markdownIt-Anchor" href="#简化复杂的表达式"></a> 简化复杂的表达式</h2>
+<h3 id="判断中项数很多的情况"><a class="markdownIt-Anchor" href="#判断中项数很多的情况"></a> 判断中项数很多的情况</h3>
+<h4 id="将复杂的表达式拆分"><a class="markdownIt-Anchor" href="#将复杂的表达式拆分"></a> 将复杂的表达式拆分</h4>
+<p>将原来复杂的判断拆分为几个小部分，将每个小部分的判断结果赋给一些新的布尔变量，再用这些新的布尔变量组合成一个较简单的判断</p>
+<p>衡量复杂与简单是根据布尔逻辑判断的项数</p>
+<h4 id="将复杂的表达式提取为布尔函数"><a class="markdownIt-Anchor" href="#将复杂的表达式提取为布尔函数"></a> 将复杂的表达式提取为布尔函数</h4>
+<p>即使这个复杂的判断只用一次，下面的做法也很有必要，因为可以改善可读性，更加集中于对主程序中整体流程的理解。具体是：将这个判断的过程提取到一个命名良好的子程序里，然后在主程序中判断这个子程序的返回值即可。这个子程序的名字也在主程序中引入了一个抽象，成为一种自说明。</p>
+<p><code>toExemplify-book</code></p>
+<h3 id="涉及到多个变量的复杂判断"><a class="markdownIt-Anchor" href="#涉及到多个变量的复杂判断"></a> 涉及到多个变量的复杂判断</h3>
+<h4 id="使用决策表来代替复杂的条件"><a class="markdownIt-Anchor" href="#使用决策表来代替复杂的条件"></a> 使用决策表来代替复杂的条件</h4>
+<p>具体参考 [[表驱动法]]</p>
+<h2 id="编写肯定形式的布尔表达式"><a class="markdownIt-Anchor" href="#编写肯定形式的布尔表达式"></a> 编写肯定形式的布尔表达式</h2>
+<p>否定形式的逻辑表达式可能会让人一时转不过弯，转换为肯定形式会更加清晰</p>
+<h3 id="在-if-else-语句中"><a class="markdownIt-Anchor" href="#在-if-else-语句中"></a> 在 if else 语句中</h3>
+<p>可以把判断条件从否定形式转换为肯定形式，并互换 if 和 else 子句中的代码</p>
+<p>这条建议可能会和“在 if 子句中先处理高频的情况”（参考[[……]]）冲突，可以配合下一条建议（更改名字）使用</p>
+<h3 id="逆转含义更换变量的名字"><a class="markdownIt-Anchor" href="#逆转含义更换变量的名字"></a> 逆转含义，更换变量的名字</h3>
+<p>如将 <code>!statusOK</code> 替换成 <code>errorDetected</code></p>
+<h3 id="利用狄摩根定理"><a class="markdownIt-Anchor" href="#利用狄摩根定理"></a> 利用狄摩根定理</h3>
+<p><code>toExemplify-book</code></p>
+<h2 id="用括号使布尔表达式更清晰"><a class="markdownIt-Anchor" href="#用括号使布尔表达式更清晰"></a> 用括号使布尔表达式更清晰</h2>
+<p>使用括号降低了对代码阅读者的要求，不再要求他们对该语言的求值优先级很熟练。对于你来说，如果拿不准优先级，使用括号也是非常好的解决方法</p>
+<h3 id="使用如下技巧使得括号准确配对"><a class="markdownIt-Anchor" href="#使用如下技巧使得括号准确配对"></a> 使用如下技巧使得括号准确配对</h3>
+<p><code>toExemplify-book</code></p>
+<p>现在一般在编辑器中都有这个功能了</p>
+<h3 id="把布尔表达式全部括在括号里面"><a class="markdownIt-Anchor" href="#把布尔表达式全部括在括号里面"></a> 把布尔表达式全部括在括号里面</h3>
+<p>这样能够改善可读性</p>
+<h2 id="理解布尔表达式的求值方式"><a class="markdownIt-Anchor" href="#理解布尔表达式的求值方式"></a> 理解布尔表达式的求值方式</h2>
+<p>不同语言下对布尔表达式的求值方式可能不同，尤其是要注意是否采用“短路（short-circuit）”求值（或者称为惰性<sub>lazy</sub>求值）</p>
+<h3 id="短路求值"><a class="markdownIt-Anchor" href="#短路求值"></a> 短路求值</h3>
+<p>“短路”and：从左往右继续计算，如果发现有一个操作数（operand）为假，则跳过剩余的计算</p>
+<p>“短路”or：从左往右继续计算，如果发现有一个操作数（operand）为真，则跳过剩余的计算</p>
+<p>用处是：利用这一性质，恰当书写求值顺序，就可以减少判断语句的书写</p>
+<h3 id="逻辑运算符-和"><a class="markdownIt-Anchor" href="#逻辑运算符-和"></a> 逻辑运算符 &amp; 和 |</h3>
+<p>Java 中的逻辑运算符 <code>&amp;</code> 和 <code>|</code> 会保证，所有的项都会经过完整的求值</p>
+<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
+<p><code>toExemplify-book</code></p>
+<h2 id="按照数轴的顺序来书写数值表达式"><a class="markdownIt-Anchor" href="#按照数轴的顺序来书写数值表达式"></a> 按照数轴的顺序来书写数值表达式</h2>
+<p>具体操作是：从左到右、从小到大地排列元素（常量和变量）。这样会很直观地确定变量所需要的范围</p>
+<p>如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MIN_ELEMENTS &lt;= i <span class="keyword">and</span> i &lt;= Max_ELEMENTS</span><br><span class="line">i &lt; MIN_ELEMENTS</span><br><span class="line">Max_ELEMENTS &lt; i</span><br></pre></td></tr></table></figure>
+<p><code>toExemplify-book-pic</code></p>
+<h2 id="与-0-比较时的指导原则"><a class="markdownIt-Anchor" href="#与-0-比较时的指导原则"></a> 与 0 比较时的指导原则</h2>
+<p>一句话，当 0 作为布尔变量时，隐式比较；其他情况，显式比较</p>
+<p>当 0 作为字符终止符、空指针时，上面的建议虽然有违既成的 C 传统，但随之也带来了可读性的改善</p>
+<p><code>toNote</code></p>
+<h2 id="布尔表达式的常见问题"><a class="markdownIt-Anchor" href="#布尔表达式的常见问题"></a> 布尔表达式的常见问题</h2>
+<h3 id="在-c-家族语言中可以使用把常量放在比较的左端这一技巧"><a class="markdownIt-Anchor" href="#在-c-家族语言中可以使用把常量放在比较的左端这一技巧"></a> 在 C 家族语言中，可以使用把常量放在比较的左端这一技巧</h3>
+<p><code>toNote</code></p>
+<blockquote>
+<p>作者偏向于数轴排序法</p>
+</blockquote>
+<h3 id="在-c中可以考虑创建预处理宏来替换-不得已才这样做"><a class="markdownIt-Anchor" href="#在-c中可以考虑创建预处理宏来替换-不得已才这样做"></a> 在 C++中，可以考虑创建预处理宏来替换 &amp;&amp;、||、==（不得已才这样做）</h3>
+<p>一般不这样做， 所以，<code>toNote</code></p>
+<h3 id="在-java-中要理解-ab-和-aequalsb-的差异"><a class="markdownIt-Anchor" href="#在-java-中要理解-ab-和-aequalsb-的差异"></a> 在 Java 中，要理解 a==b 和 a.equals(b) 的差异</h3>
+<p><code>a==b</code>：判断的是 a 和 b 是否引用了同一个对象，即比较的是地址</p>
+<p><code>a.equals(b)</code>：判断这两个对象是否具有相同的值</p>
+<p>一般来说，应该使用 <code>a.equals(b)</code> 这样的表达式</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.4 循环和数组的关系/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    16.4 循环和数组的关系
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.2 复合语句（语句块）/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">19.2 复合语句（语句块）</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            hmgqzx &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/wiki/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/wiki/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/wiki/js/main.js"></script>
+
+    </div>
+</body>
+</html>

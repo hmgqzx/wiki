@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>有限状态机 FSM | Hmgqzx&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="有限状态机 FSM" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="定义 有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。[1]  特征 简单说，它有三个特征[2]：  状态总数（state）是有限的。 任一时刻，只处在一种状态之中。 某种条件下，会从一种状态转变（transition）到另一种状态。   几个重要概念[3]  状态（S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有限状态机 FSM">
+<meta property="og:url" content="https://hmgqzx.github.io/wiki/42/有限状态机/index.html">
+<meta property="og:site_name" content="Hmgqzx&#39;s Wiki">
+<meta property="og:description" content="定义 有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。[1]  特征 简单说，它有三个特征[2]：  状态总数（state）是有限的。 任一时刻，只处在一种状态之中。 某种条件下，会从一种状态转变（transition）到另一种状态。   几个重要概念[3]  状态（S">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.beekka.com/blog/201309/bg2013090201.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1133568-8bedb833289081b7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://www.programmingbasics.org/zh/beginner/img/fsm3.png">
+<meta property="og:updated_time" content="2018-03-01T18:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有限状态机 FSM">
+<meta name="twitter:description" content="定义 有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。[1]  特征 简单说，它有三个特征[2]：  状态总数（state）是有限的。 任一时刻，只处在一种状态之中。 某种条件下，会从一种状态转变（transition）到另一种状态。   几个重要概念[3]  状态（S">
+<meta name="twitter:image" content="http://image.beekka.com/blog/201309/bg2013090201.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hmgqzx&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/wiki/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/wiki/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/wiki/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/wiki/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/wiki/css/style.css">
+    <script src="/wiki/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/wiki/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102767719-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d7a46b5b4bfe6d00a9059464ac12bac7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/wiki/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hmgqzx&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/wiki/">首页</a>
+                
+                    <a class="main-nav-link" href="/wiki/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/wiki/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/wiki/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/wiki/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/wiki/',
+        CONTENT_URL: '/wiki/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/wiki/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/wiki/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            42
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/42/有限状态机/">有限状态机 FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 中提交注释相关
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 中提交注释相关/Git-提交大段注释/">Git 中提交一大段、多行的注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 命令/Git-常用命令/">Git 常用命令</a></li>  <li class="file"><a href="/wiki/Git/Git 命令/Git-alias别名/">Git 命令的 alias 别名</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Git/Git-其他相关问题/">Git 其他常见相关问题</a></li>  <li class="file"><a href="/wiki/Git/Git-学习资源/">Git 的学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Hexo/Hexo 博客搭建过程注意点/">Hexo 博客搭建过程注意点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/JavaScript/回调函数/">JavaScript 中的回调</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LaTex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/LaTex/LaTeX/">LaTeX</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mac
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用命令行软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用命令行软件/Aria2/">Aria 2 —— Mac 的下载利器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用软件常用快捷键
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/Chrome/">Chrome 易忘快捷键</a></li>  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/index/">Mac OS X 下常用软件的常用快捷键</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Mac/Dock/">Dock</a></li>  <li class="file"><a href="/wiki/Mac/QuickLook 预览增强插件/">QuickLook 预览增强插件</a></li>  <li class="file"><a href="/wiki/Mac/dotfiles/">dotfiles</a></li>  <li class="file"><a href="/wiki/Mac/Mac 命令行工具/">Mac OS X 里特有的那些命令行</a></li>  <li class="file"><a href="/wiki/Mac/homebrew/">Homebrew</a></li>  <li class="file"><a href="/wiki/Mac/使用技巧/">Mac 使用技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资源推荐
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/学习资源推荐/Python在线学习资源/">Python 的在线学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/常用札记/Python 字典/">Python 字典的常用知识</a></li>  <li class="file"><a href="/wiki/Python/常用札记/Python 字符串/">Python 字符串的常用知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            模块用法
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/模块用法/模块导入/">Python 模块的导入</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Python/Python 数据持久化/">Python 数据持久化</a></li>  <li class="file"><a href="/wiki/Python/Python 常量/">Python 中的常量</a></li>  <li class="file"><a href="/wiki/Python/Python 虚拟环境/">Pyenv —— Python版本管理工具</a></li>  <li class="file"><a href="/wiki/Python/pyc文件/">pyc文件</a></li>  <li class="file"><a href="/wiki/Python/collections模块/">Python collections模块</a></li>  <li class="file"><a href="/wiki/Python/pickle/">pickle</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Sublime Text
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            BracketHighlight
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/BracketHighlight/BracketHighlight 配置/">BracketHighlight 配置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Emmet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/Emmet/Emmet 语法/">Emmet 语法简单总结</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/插件/PlainTasks/">PlainTasks</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/Sublime Text 插件/">Sublime Text 插件</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/SideBarEnhancements/">SideBarEnhancements</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/Sublime Text 主题/">Sublime Text 主题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Unix
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Unix/ssh/">SSH</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim 札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vim/Vim 札记/Vim中设置tab与空格/">Vim 中设置 tab 自动转换为 4 个空格</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Zsh
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Zsh/插件/autojump/">autojump 自动跳转目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Zsh/zsh-安装/">Zsh 安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            书籍阅读笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                             Code Complete 代码大全
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 14 - 组织直线型代码
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.1 语句必须明确顺序/">14.1 语句必须明确顺序</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.2 顺序无关的语句/">14.2 顺序无关的语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 15 使用条件语句
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 15 使用条件语句/15.2 case 语句/">15.2 case 语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 16 控制循环 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.1  选择循环的种类/">16.1  选择循环的种类</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.3 轻松创建循环——由内而外/">16.3 轻松创建循环——由内而外</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.2 循环的控制/">16.2 循环的控制</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.4 循环和数组的关系/">16.4 循环和数组的关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 19 一般控制问题
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/">19.1 布尔表达式</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.2 复合语句（语句块）/">19.2 复合语句（语句块）</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.3 空语句/">19.3 空语句</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.4 驯服危险的深层嵌套/">19.4 驯服危险的深层嵌套</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/">19.6 控制结构与复杂度</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.5 编程基础：结构化编程/">19.5 编程基础：结构化编程</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            健身
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动作
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            abs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/abs/Plank/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arms
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/arms/Barbell Curl/">Barbell Curl 杠铃弯举</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            back
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/back/Barbell Deadlift/">Barbell Deadlift</a></li>  <li class="file"><a href="/wiki/健身/动作/back/Wide-Grip Lat Pulldown/">Wide-Grip Lat Pulldown</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            chest
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/chest/Dumbbell Bench Press/">Dumbbell Bench Press</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            legs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/legs/Squat/">Squat 深蹲</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            shoulder
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/shoulder/Standing Military Press/">Standing Military Press</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元理论
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/元理论/元学习/元学习理论/">元学习理论</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/其他工具/PlantUML/">PlantUML —— UML 绘图工具</a></li>  <li class="file"><a href="/wiki/其他工具/nodePPT/">nodePPT —— 自动化生成 PPT</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            感冒
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/生活/感冒/对乙酰氨基酚/">对乙酰氨基酚</a></li>  <li class="file"><a href="/wiki/生活/感冒/布洛芬/">布洛芬</a></li>  <li class="file"><a href="/wiki/生活/感冒/感冒/">感冒</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Hmgqzx's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-42/有限状态机" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/wiki/categories/42/">42</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/42/有限状态机/">
+            <time datetime="2018-03-01T18:13:19.000Z" itemprop="datePublished">2018-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/raw/master/source/_posts/42/有限状态机.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/edit/master/source/_posts/42/有限状态机.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/commits/master/source/_posts/42/有限状态机.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            有限状态机 FSM
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text"> 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征"><span class="toc-number">2.</span> <span class="toc-text"> 特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几个重要概念"><span class="toc-number">3.</span> <span class="toc-text"> 几个重要概念[3]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态机的要素"><span class="toc-number">4.</span> <span class="toc-text"> 状态机的要素[1:1]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意的问题"><span class="toc-number">5.</span> <span class="toc-text"> 注意的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">6.</span> <span class="toc-text"> 例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏"><span class="toc-number">6.1.</span> <span class="toc-text"> 游戏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#褒扬和批判"><span class="toc-number">7.</span> <span class="toc-text"> 褒扬和批判</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏开发"><span class="toc-number">7.1.</span> <span class="toc-text"> 游戏开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多"><span class="toc-number">8.</span> <span class="toc-text"> 更多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text"> 参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p><img src="http://image.beekka.com/blog/201309/bg2013090201.png" alt="img"></p>
+<h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2>
+<p>有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h2 id="特征"><a class="markdownIt-Anchor" href="#特征"></a> 特征</h2>
+<p>简单说，它有三个特征<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p>
+<ul>
+<li>状态总数（state）是有限的。</li>
+<li>任一时刻，只处在一种状态之中。</li>
+<li>某种条件下，会从一种状态转变（transition）到另一种状态。</li>
+</ul>
+<h2 id="几个重要概念"><a class="markdownIt-Anchor" href="#几个重要概念"></a> 几个重要概念<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2>
+<ul>
+<li>状态（State）：表示对象的某种形态，在当前形态下可能会拥有不同的行为和属性。</li>
+<li>转移（Transition）：表示状态变更，并且必须满足确使转移发生的条件来执行。</li>
+<li>动作（Action）：表示在给定时刻要进行的活动。</li>
+<li>事件（Event）：事件通常会引起状态的变迁，促使状态机从一种状态切换到另一种状态。</li>
+</ul>
+<h2 id="状态机的要素"><a class="markdownIt-Anchor" href="#状态机的要素"></a> 状态机的要素<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></h2>
+<p>状态机可归纳为4个要素，即现态、条件、动作、次态。“现态”和“条件”是因，“动作”和“次态”是果。详解如下：</p>
+<ul>
+<li>现态：当前所处的状态。</li>
+<li>条件：又称为“事件”。当一个条件被满足，将会触发一个动作，或者执行一次状态的迁移。</li>
+<li>动作：条件满足后执行的动作。动作执行完毕后，可以迁移到新的状态，也可以仍旧保持原状态。动作不是必需的，当条件满足后，也可以不执行任何动作，直接迁移到新状态。</li>
+<li><mark>次态</mark>：条件满足后要迁往的新状态。“次态”是相对于“现态”而言的，“次态”一旦被激活，就转变成新的“现态”了。</li>
+</ul>
+<p>我们可以用状态表了表示整个过程，如下图所示。</p>
+<blockquote>
+<p>状态表</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1133568-8bedb833289081b7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+</blockquote>
+<h2 id="注意的问题"><a class="markdownIt-Anchor" href="#注意的问题"></a> 注意的问题</h2>
+<p><strong>避免把某个“程序动作”当作是一种“状态”来处理</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p>
+<p>那么如何区分“动作”和“状态”？“动作”是不稳定的，即使没有条件的触发，“动作”一旦执行完毕就结束了；<mark>而“状态”是相对稳定的</mark>，如果没有外部条件的触发，一个状态会一直持续下去。</p>
+<h2 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h2>
+<h3 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h3>
+<p>有限状态机用来编游戏和故事是最好的了。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
+这有一个寻宝游戏，首先你从‘开始’出发，然后你跟随箭头知道你到达终点。</p>
+<p><img src="http://www.programmingbasics.org/zh/beginner/img/fsm3.png" alt="img"></p>
+<h2 id="褒扬和批判"><a class="markdownIt-Anchor" href="#褒扬和批判"></a> 褒扬和批判</h2>
+<h3 id="游戏开发"><a class="markdownIt-Anchor" href="#游戏开发"></a> 游戏开发</h3>
+<p>在游戏开发中使用状态机显然不失为一种不错的选择，首先它的概念并不复杂，其次它的实现也十分简单而直接。但它的缺点却也十分明显，例如难以复用，因为它往往需要根据具体的情况来做出反应，当然当状态机的模型复杂到一定的程度之后，也会带来实现和维护上的困难。<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></p>
+<h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2>
+<p>参考：<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>代码相关：<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup></p>
+<blockquote>
+<p>对JavaScript的意义在于，很多对象可以写成有限状态机。</p>
+</blockquote>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="http://www.jianshu.com/p/5eb45c64f3e3" target="_blank" rel="noopener">深入浅出理解有限状态机 - 简书</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2013/09/finite-state_machine_for_javascript.html" target="_blank" rel="noopener">JavaScript与有限状态机 - 阮一峰的网络日志</a> <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://segmentfault.com/a/1190000004241958" target="_blank" rel="noopener">趣说游戏AI开发：对状态机的褒扬和批判 - Runtime - SegmentFault</a> <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="http://www.programmingbasics.org/zh/beginner/fsm.html" target="_blank" rel="noopener">Programming Basics: 有限状态机</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="noopener">有限状态机 - 维基百科，自由的百科全书</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/index/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Welcome to Hmgqzx&#39;s Wiki Site
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/Git/Git-其他相关问题/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Git 其他常见相关问题</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            hmgqzx &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/wiki/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/wiki/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/wiki/js/main.js"></script>
+
+    </div>
+</body>
+</html>

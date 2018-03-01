@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Mac OS X 里特有的那些命令行 | Hmgqzx&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="配置,小技巧" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Mac 里的不少配置可以通过特定的命令行来设定，以下是我比较常用的、感兴趣的命令。我一般是在 zsh 里对这些常用的命令设定 alias，非常方便。 更多的命令请参考：  herrbischoff/awesome-osx-command-line: Use your OS X terminal shell to do awesome things.   Finder  Show All File">
+<meta name="keywords" content="配置,小技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS X 里特有的那些命令行">
+<meta property="og:url" content="https://hmgqzx.github.io/wiki/Mac/Mac 命令行工具/index.html">
+<meta property="og:site_name" content="Hmgqzx&#39;s Wiki">
+<meta property="og:description" content="Mac 里的不少配置可以通过特定的命令行来设定，以下是我比较常用的、感兴趣的命令。我一般是在 zsh 里对这些常用的命令设定 alias，非常方便。 更多的命令请参考：  herrbischoff/awesome-osx-command-line: Use your OS X terminal shell to do awesome things.   Finder  Show All File">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-01T18:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac OS X 里特有的那些命令行">
+<meta name="twitter:description" content="Mac 里的不少配置可以通过特定的命令行来设定，以下是我比较常用的、感兴趣的命令。我一般是在 zsh 里对这些常用的命令设定 alias，非常方便。 更多的命令请参考：  herrbischoff/awesome-osx-command-line: Use your OS X terminal shell to do awesome things.   Finder  Show All File">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hmgqzx&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/wiki/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/wiki/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/wiki/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/wiki/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/wiki/css/style.css">
+    <script src="/wiki/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/wiki/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102767719-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d7a46b5b4bfe6d00a9059464ac12bac7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/wiki/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hmgqzx&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/wiki/">首页</a>
+                
+                    <a class="main-nav-link" href="/wiki/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/wiki/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/wiki/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/wiki/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/wiki/',
+        CONTENT_URL: '/wiki/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/wiki/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/wiki/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            42
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/42/有限状态机/">有限状态机 FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 中提交注释相关
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 中提交注释相关/Git-提交大段注释/">Git 中提交一大段、多行的注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 命令/Git-常用命令/">Git 常用命令</a></li>  <li class="file"><a href="/wiki/Git/Git 命令/Git-alias别名/">Git 命令的 alias 别名</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Git/Git-其他相关问题/">Git 其他常见相关问题</a></li>  <li class="file"><a href="/wiki/Git/Git-学习资源/">Git 的学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Hexo/Hexo 博客搭建过程注意点/">Hexo 博客搭建过程注意点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/JavaScript/回调函数/">JavaScript 中的回调</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LaTex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/LaTex/LaTeX/">LaTeX</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Mac
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用命令行软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用命令行软件/Aria2/">Aria 2 —— Mac 的下载利器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用软件常用快捷键
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/Chrome/">Chrome 易忘快捷键</a></li>  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/index/">Mac OS X 下常用软件的常用快捷键</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Mac/Dock/">Dock</a></li>  <li class="file"><a href="/wiki/Mac/QuickLook 预览增强插件/">QuickLook 预览增强插件</a></li>  <li class="file"><a href="/wiki/Mac/dotfiles/">dotfiles</a></li>  <li class="file active"><a href="/wiki/Mac/Mac 命令行工具/">Mac OS X 里特有的那些命令行</a></li>  <li class="file"><a href="/wiki/Mac/homebrew/">Homebrew</a></li>  <li class="file"><a href="/wiki/Mac/使用技巧/">Mac 使用技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资源推荐
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/学习资源推荐/Python在线学习资源/">Python 的在线学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/常用札记/Python 字典/">Python 字典的常用知识</a></li>  <li class="file"><a href="/wiki/Python/常用札记/Python 字符串/">Python 字符串的常用知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            模块用法
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/模块用法/模块导入/">Python 模块的导入</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Python/Python 数据持久化/">Python 数据持久化</a></li>  <li class="file"><a href="/wiki/Python/Python 常量/">Python 中的常量</a></li>  <li class="file"><a href="/wiki/Python/Python 虚拟环境/">Pyenv —— Python版本管理工具</a></li>  <li class="file"><a href="/wiki/Python/pyc文件/">pyc文件</a></li>  <li class="file"><a href="/wiki/Python/collections模块/">Python collections模块</a></li>  <li class="file"><a href="/wiki/Python/pickle/">pickle</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Sublime Text
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            BracketHighlight
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/BracketHighlight/BracketHighlight 配置/">BracketHighlight 配置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Emmet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/Emmet/Emmet 语法/">Emmet 语法简单总结</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/插件/PlainTasks/">PlainTasks</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/Sublime Text 插件/">Sublime Text 插件</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/SideBarEnhancements/">SideBarEnhancements</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/Sublime Text 主题/">Sublime Text 主题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Unix
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Unix/ssh/">SSH</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim 札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vim/Vim 札记/Vim中设置tab与空格/">Vim 中设置 tab 自动转换为 4 个空格</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Zsh
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Zsh/插件/autojump/">autojump 自动跳转目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Zsh/zsh-安装/">Zsh 安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            书籍阅读笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                             Code Complete 代码大全
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 14 - 组织直线型代码
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.1 语句必须明确顺序/">14.1 语句必须明确顺序</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.2 顺序无关的语句/">14.2 顺序无关的语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 15 使用条件语句
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 15 使用条件语句/15.2 case 语句/">15.2 case 语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 16 控制循环 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.1  选择循环的种类/">16.1  选择循环的种类</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.3 轻松创建循环——由内而外/">16.3 轻松创建循环——由内而外</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.2 循环的控制/">16.2 循环的控制</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.4 循环和数组的关系/">16.4 循环和数组的关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 19 一般控制问题
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/">19.1 布尔表达式</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.2 复合语句（语句块）/">19.2 复合语句（语句块）</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.3 空语句/">19.3 空语句</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.4 驯服危险的深层嵌套/">19.4 驯服危险的深层嵌套</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/">19.6 控制结构与复杂度</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.5 编程基础：结构化编程/">19.5 编程基础：结构化编程</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            健身
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动作
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            abs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/abs/Plank/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arms
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/arms/Barbell Curl/">Barbell Curl 杠铃弯举</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            back
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/back/Barbell Deadlift/">Barbell Deadlift</a></li>  <li class="file"><a href="/wiki/健身/动作/back/Wide-Grip Lat Pulldown/">Wide-Grip Lat Pulldown</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            chest
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/chest/Dumbbell Bench Press/">Dumbbell Bench Press</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            legs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/legs/Squat/">Squat 深蹲</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            shoulder
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/shoulder/Standing Military Press/">Standing Military Press</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元理论
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/元理论/元学习/元学习理论/">元学习理论</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/其他工具/PlantUML/">PlantUML —— UML 绘图工具</a></li>  <li class="file"><a href="/wiki/其他工具/nodePPT/">nodePPT —— 自动化生成 PPT</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            感冒
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/生活/感冒/对乙酰氨基酚/">对乙酰氨基酚</a></li>  <li class="file"><a href="/wiki/生活/感冒/布洛芬/">布洛芬</a></li>  <li class="file"><a href="/wiki/生活/感冒/感冒/">感冒</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Hmgqzx's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Mac/Mac 命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/wiki/categories/Mac/">Mac</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/wiki/tags/小技巧/">小技巧</a>, <a class="tag-link" href="/wiki/tags/配置/">配置</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Mac/Mac 命令行工具/">
+            <time datetime="2018-03-01T18:13:19.000Z" itemprop="datePublished">2018-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/raw/master/source/_posts/Mac/Mac 命令行工具.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/edit/master/source/_posts/Mac/Mac 命令行工具.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/commits/master/source/_posts/Mac/Mac 命令行工具.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Mac OS X 里特有的那些命令行
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#finder"><span class="toc-number">1.</span> <span class="toc-text"> Finder</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#show-all-file-extensions-显示所有的文件扩展名"><span class="toc-number">1.1.</span> <span class="toc-text"> Show All File Extensions 显示所有的文件扩展名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hide-folder-in-finder-隐藏-finder-里的指定文件夹"><span class="toc-number">1.2.</span> <span class="toc-text"> Hide Folder in Finder 隐藏 Finder 里的指定文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-hidden-files-显示隐藏文件"><span class="toc-number">1.3.</span> <span class="toc-text"> Show Hidden Files 显示隐藏文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unhide-user-library-folder-不隐藏用户的库文件夹"><span class="toc-number">1.4.</span> <span class="toc-text"> Unhide User Library Folder 不隐藏用户的库文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#increase-number-of-recent-places-增加-finder-中的最近使用文件夹数量"><span class="toc-number">1.5.</span> <span class="toc-text"> Increase Number of Recent Places 增加 Finder 中的“最近使用文件夹”数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-quit-finder-menu-item-设定-finder-可退出强烈推荐"><span class="toc-number">1.6.</span> <span class="toc-text"> Show “Quit Finder” Menu Item 设定 Finder 可退出（强烈推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#path-bar显示路径栏"><span class="toc-number">1.7.</span> <span class="toc-text"> Path Bar	显示路径栏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#status-bar-状态栏"><span class="toc-number">1.8.</span> <span class="toc-text"> Status Bar 状态栏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-current-folder-as-default-search-scope-设置当前文件夹为默认搜索域"><span class="toc-number">1.9.</span> <span class="toc-text"> Set Current Folder as Default Search Scope 设置当前文件夹为默认搜索域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layout"><span class="toc-number">2.</span> <span class="toc-text"> Layout</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#desktop-icon-visibility-显示隐藏桌面图标"><span class="toc-number">2.1.</span> <span class="toc-text"> Desktop Icon Visibility 显示/隐藏桌面图标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#battery-电池"><span class="toc-number">3.</span> <span class="toc-text"> Battery 电池</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#remaining-battery-percentage-剩余电量"><span class="toc-number">3.1.</span> <span class="toc-text"> Remaining Battery Percentage 剩余电量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#remaining-battery-time-电池剩余使用时间"><span class="toc-number">3.2.</span> <span class="toc-text"> Remaining Battery Time 电池剩余使用时间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#power-management-电源管理"><span class="toc-number">4.</span> <span class="toc-text"> Power Management 电源管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prevent-system-sleep-防止系统进入睡眠一段时间"><span class="toc-number">4.1.</span> <span class="toc-text"> Prevent System Sleep 防止系统进入睡眠一段时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#put-display-to-sleep-after-15-minutes-of-inactivity-一段时间不活动后关闭显示器"><span class="toc-number">4.2.</span> <span class="toc-text"> Put Display to Sleep after 15 Minutes of Inactivity 一段时间不活动后关闭显示器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#put-computer-to-sleep-after-30-minutes-of-inactivity-一段时间不活动后使-mac-睡眠"><span class="toc-number">4.3.</span> <span class="toc-text"> Put Computer to Sleep after 30 Minutes of Inactivity 一段时间不活动后使 Mac 睡眠</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#check-system-sleep-idle-time-查看系统进入休眠的间隔"><span class="toc-number">4.4.</span> <span class="toc-text"> Check System Sleep Idle Time 查看系统进入休眠的间隔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-system-sleep-idle-time-to-60-minutes-设置系统进入休眠的间隔"><span class="toc-number">4.5.</span> <span class="toc-text"> Set System Sleep Idle Time to 60 Minutes 设置系统进入休眠的间隔</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#audio"><span class="toc-number">5.</span> <span class="toc-text"> Audio</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set-audio-volume"><span class="toc-number">5.1.</span> <span class="toc-text"> Set Audio Volume</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#play-audio-file"><span class="toc-number">5.2.</span> <span class="toc-text"> Play Audio File</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tts"><span class="toc-number">6.</span> <span class="toc-text"> TTS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#speak-text-with-system-default-voice-用-tts-发音朗读文本"><span class="toc-number">6.1.</span> <span class="toc-text"> Speak Text with System Default Voice 用 TTS 发音朗读文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#create-audiobook-from-text"><span class="toc-number">6.2.</span> <span class="toc-text"> Create Audiobook From Text</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#networking-tools-网络工具"><span class="toc-number">7.</span> <span class="toc-text"> Networking Tools 网络工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ping-a-host-to-see-whether-its-available"><span class="toc-number">7.1.</span> <span class="toc-text"> Ping a Host to See Whether It’s Available</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#troubleshoot-routing-problems"><span class="toc-number">7.2.</span> <span class="toc-text"> Troubleshoot Routing Problems</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh"><span class="toc-number">8.</span> <span class="toc-text"> SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#remote-login-远程登录"><span class="toc-number">8.1.</span> <span class="toc-text"> Remote Login 远程登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tcpip"><span class="toc-number">9.</span> <span class="toc-text"> TCP/IP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#show-application-using-a-certain-port-显示当前占用特定端口的应用列表-强烈推荐"><span class="toc-number">9.1.</span> <span class="toc-text"> Show Application Using a Certain Port 显示当前占用特定端口的应用列表 （强烈推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-external-ip-address"><span class="toc-number">9.2.</span> <span class="toc-text"> Show External IP Address</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wi-fi"><span class="toc-number">10.</span> <span class="toc-text"> Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#show-local-ip-address"><span class="toc-number">10.1.</span> <span class="toc-text"> Show Local IP Address</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-wi-fi-connection-history"><span class="toc-number">10.2.</span> <span class="toc-text"> Show Wi-Fi Connection History</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-wi-fi-network-passwords"><span class="toc-number">10.3.</span> <span class="toc-text"> Show Wi-Fi Network Passwords</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spotlight"><span class="toc-number">11.</span> <span class="toc-text"> Spotlight</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spotlight-indexing"><span class="toc-number">11.1.</span> <span class="toc-text"> Spotlight Indexing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#erase-spotlight-index-and-rebuild-重建索引"><span class="toc-number">11.2.</span> <span class="toc-text"> Erase Spotlight Index and Rebuild 重建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#search-via-spotlight-搜索"><span class="toc-number">11.3.</span> <span class="toc-text"> Search via Spotlight 搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-spotlight-indexed-metadata"><span class="toc-number">11.4.</span> <span class="toc-text"> Show Spotlight Indexed Metadata</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#screenshots-屏幕截图"><span class="toc-number">12.</span> <span class="toc-text"> Screenshots 屏幕截图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#take-delayed-screenshot"><span class="toc-number">12.1.</span> <span class="toc-text"> Take Delayed Screenshot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save-screenshots-to-given-location"><span class="toc-number">12.2.</span> <span class="toc-text"> Save Screenshots to Given Location</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save-screenshots-in-given-format"><span class="toc-number">12.3.</span> <span class="toc-text"> Save Screenshots in Given Format</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#disable-shadow-in-screenshots-隐藏截图里的阴影"><span class="toc-number">12.4.</span> <span class="toc-text"> Disable Shadow in Screenshots 隐藏截图里的阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-default-screenshot-name"><span class="toc-number">12.5.</span> <span class="toc-text"> Set Default Screenshot Name</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-window"><span class="toc-number">13.</span> <span class="toc-text"> Login Window</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set-login-window-text"><span class="toc-number">13.1.</span> <span class="toc-text"> Set Login Window Text</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#security"><span class="toc-number">14.</span> <span class="toc-text"> Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-firewall"><span class="toc-number">15.</span> <span class="toc-text"> Application Firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#firewall-service"><span class="toc-number">15.1.</span> <span class="toc-text"> Firewall Service</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#add-application-to-firewall"><span class="toc-number">15.2.</span> <span class="toc-text"> Add Application to Firewall</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwords"><span class="toc-number">16.</span> <span class="toc-text"> Passwords</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#generate-secure-password-and-copy-to-clipboard"><span class="toc-number">16.1.</span> <span class="toc-text"> Generate Secure Password and Copy to Clipboard</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#physical-access"><span class="toc-number">17.</span> <span class="toc-text"> Physical Access</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#launch-screen-saver-启动屏幕保护程序"><span class="toc-number">17.1.</span> <span class="toc-text"> Launch Screen Saver  启动屏幕保护程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lock-screen-锁屏"><span class="toc-number">17.2.</span> <span class="toc-text"> Lock Screen 锁屏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#screensaver-immediate-lock"><span class="toc-number">17.3.</span> <span class="toc-text"> Screensaver Immediate Lock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#screensaver-password"><span class="toc-number">17.4.</span> <span class="toc-text"> Screensaver Password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutdown-关机"><span class="toc-number">17.5.</span> <span class="toc-text"> Shutdown 关机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uptime-已开机时间"><span class="toc-number">17.6.</span> <span class="toc-text"> Uptime 已开机时间</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>Mac 里的不少配置可以通过特定的命令行来设定，以下是我比较常用的、感兴趣的命令。我一般是在 zsh 里对这些常用的命令设定 alias，非常方便。<br>
+<em>更多的命令请参考：</em></p>
+<ul>
+<li><a href="https://github.com/herrbischoff/awesome-osx-command-line" target="_blank" rel="noopener">herrbischoff/awesome-osx-command-line: Use your OS X terminal shell to do awesome things.</a></li>
+</ul>
+<h3 id="finder"><a class="markdownIt-Anchor" href="#finder"></a> Finder</h3>
+<h4 id="show-all-file-extensions-显示所有的文件扩展名"><a class="markdownIt-Anchor" href="#show-all-file-extensions-显示所有的文件扩展名"></a> Show All File Extensions 显示所有的文件扩展名</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write -g AppleShowAllExtensions -bool true</span><br></pre></td></tr></table></figure>
+<h4 id="hide-folder-in-finder-隐藏-finder-里的指定文件夹"><a class="markdownIt-Anchor" href="#hide-folder-in-finder-隐藏-finder-里的指定文件夹"></a> Hide Folder in Finder 隐藏 Finder 里的指定文件夹</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chflags hidden /path/to/folder/</span><br></pre></td></tr></table></figure>
+<h4 id="show-hidden-files-显示隐藏文件"><a class="markdownIt-Anchor" href="#show-hidden-files-显示隐藏文件"></a> Show Hidden Files 显示隐藏文件</h4>
+<p>隐藏文件是指以<code>.</code>开头的系统文件等，在 Finder 里默认隐藏；开启显示后，数目会很多，建议平时不用时关闭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Show All #要重启才行？</span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles true</span><br><span class="line"></span><br><span class="line"># Restore Default File Visibility</span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles false</span><br></pre></td></tr></table></figure>
+<h4 id="unhide-user-library-folder-不隐藏用户的库文件夹"><a class="markdownIt-Anchor" href="#unhide-user-library-folder-不隐藏用户的库文件夹"></a> Unhide User Library Folder 不隐藏用户的库文件夹</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chflags nohidden ~/Library</span><br></pre></td></tr></table></figure>
+<h4 id="increase-number-of-recent-places-增加-finder-中的最近使用文件夹数量"><a class="markdownIt-Anchor" href="#increase-number-of-recent-places-增加-finder-中的最近使用文件夹数量"></a> Increase Number of Recent Places 增加 Finder 中的“最近使用文件夹”数量</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write -g NSNavRecentPlacesLimit -int 10 &amp;&amp; \</span><br><span class="line">killall Finder</span><br></pre></td></tr></table></figure>
+<h4 id="show-quit-finder-menu-item-设定-finder-可退出强烈推荐"><a class="markdownIt-Anchor" href="#show-quit-finder-menu-item-设定-finder-可退出强烈推荐"></a> Show “Quit Finder” Menu Item 设定 Finder 可退出（<code>强烈推荐</code>）</h4>
+<blockquote>
+<p>Makes possible to see Finder menu item “Quit Finder” with default shortcut Cmd + Q</p>
+</blockquote>
+<p>这个好用，这样就能使用 <code>Cmd + Q</code> 一次性关闭所有的 Finder 窗口了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Enable</span><br><span class="line">defaults write com.apple.finder QuitMenuItem -bool true &amp;&amp; \</span><br><span class="line">killall Finder</span><br><span class="line"></span><br><span class="line"># Disable (Default)</span><br><span class="line">defaults write com.apple.finder QuitMenuItem -bool false &amp;&amp; \</span><br><span class="line">killall Finder</span><br></pre></td></tr></table></figure>
+<h4 id="path-bar显示路径栏"><a class="markdownIt-Anchor" href="#path-bar显示路径栏"></a> Path Bar	显示路径栏</h4>
+<p>开启后会在 Finder  底部显示当前路径信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Show</span><br><span class="line">defaults write com.apple.finder ShowPathbar -bool true</span><br><span class="line"></span><br><span class="line"># Hide (Default)</span><br><span class="line">defaults write com.apple.finder ShowPathbar -bool false</span><br></pre></td></tr></table></figure>
+<h4 id="status-bar-状态栏"><a class="markdownIt-Anchor" href="#status-bar-状态栏"></a> Status Bar 状态栏</h4>
+<p>在 Finder 最底部，显示当前文件夹项目数量、光标选中数量、硬盘可用容量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Show</span><br><span class="line">defaults write com.apple.finder ShowStatusBar -bool true</span><br><span class="line"></span><br><span class="line"># Hide (Default)</span><br><span class="line">defaults write com.apple.finder ShowStatusBar -bool false</span><br></pre></td></tr></table></figure>
+<h4 id="set-current-folder-as-default-search-scope-设置当前文件夹为默认搜索域"><a class="markdownIt-Anchor" href="#set-current-folder-as-default-search-scope-设置当前文件夹为默认搜索域"></a> Set Current Folder as Default Search Scope 设置当前文件夹为默认搜索域</h4>
+<p>整理有序的话，大部分情况下只是搜索当前目录，这样就不用每次都要多点击一次来选择了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder FXDefaultSearchScope -string &quot;SCcf&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="layout"><a class="markdownIt-Anchor" href="#layout"></a> Layout</h3>
+<h4 id="desktop-icon-visibility-显示隐藏桌面图标"><a class="markdownIt-Anchor" href="#desktop-icon-visibility-显示隐藏桌面图标"></a> Desktop Icon Visibility 显示/隐藏桌面图标</h4>
+<p>OS X 桌面的右键功能里没有 Windows 的“隐藏桌面图标”选项，可以通过下面的命令实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Hide Icons</span><br><span class="line">defaults write com.apple.finder CreateDesktop -bool false &amp;&amp; \</span><br><span class="line">killall Finder</span><br><span class="line"></span><br><span class="line"># Show Icons (Default)</span><br><span class="line">defaults write com.apple.finder CreateDesktop -bool true &amp;&amp; \</span><br><span class="line">killall Finder</span><br></pre></td></tr></table></figure>
+<h3 id="battery-电池"><a class="markdownIt-Anchor" href="#battery-电池"></a> Battery 电池</h3>
+<p>哈哈，这个纯粹是列在这儿，平时并没多大用</p>
+<h4 id="remaining-battery-percentage-剩余电量"><a class="markdownIt-Anchor" href="#remaining-battery-percentage-剩余电量"></a> Remaining Battery Percentage 剩余电量</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'</span><br></pre></td></tr></table></figure>
+<h4 id="remaining-battery-time-电池剩余使用时间"><a class="markdownIt-Anchor" href="#remaining-battery-time-电池剩余使用时间"></a> Remaining Battery Time 电池剩余使用时间</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f3 -d';'</span><br></pre></td></tr></table></figure>
+<h3 id="power-management-电源管理"><a class="markdownIt-Anchor" href="#power-management-电源管理"></a> Power Management 电源管理</h3>
+<h4 id="prevent-system-sleep-防止系统进入睡眠一段时间"><a class="markdownIt-Anchor" href="#prevent-system-sleep-防止系统进入睡眠一段时间"></a> Prevent System Sleep 防止系统进入睡眠一段时间</h4>
+<p>参数单位是秒</p>
+<p>Prevent sleep for 1 hour:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caffeinate -u -t 3600</span><br></pre></td></tr></table></figure>
+<h4 id="put-display-to-sleep-after-15-minutes-of-inactivity-一段时间不活动后关闭显示器"><a class="markdownIt-Anchor" href="#put-display-to-sleep-after-15-minutes-of-inactivity-一段时间不活动后关闭显示器"></a> Put Display to Sleep after 15 Minutes of Inactivity 一段时间不活动后关闭显示器</h4>
+<p>参数单位是分钟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset displaysleep 15</span><br></pre></td></tr></table></figure>
+<h4 id="put-computer-to-sleep-after-30-minutes-of-inactivity-一段时间不活动后使-mac-睡眠"><a class="markdownIt-Anchor" href="#put-computer-to-sleep-after-30-minutes-of-inactivity-一段时间不活动后使-mac-睡眠"></a> Put Computer to Sleep after 30 Minutes of Inactivity 一段时间不活动后使 Mac 睡眠</h4>
+<p>参数单位是分钟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset sleep 30</span><br></pre></td></tr></table></figure>
+<h4 id="check-system-sleep-idle-time-查看系统进入休眠的间隔"><a class="markdownIt-Anchor" href="#check-system-sleep-idle-time-查看系统进入休眠的间隔"></a> Check System Sleep Idle Time 查看系统进入休眠的间隔</h4>
+<p>目前我的是 1 分钟</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemsetup -getcomputersleep</span></span><br><span class="line">Computer Sleep: after 1 minutes</span><br></pre></td></tr></table></figure>
+<h4 id="set-system-sleep-idle-time-to-60-minutes-设置系统进入休眠的间隔"><a class="markdownIt-Anchor" href="#set-system-sleep-idle-time-to-60-minutes-设置系统进入休眠的间隔"></a> Set System Sleep Idle Time to 60 Minutes 设置系统进入休眠的间隔</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -setcomputersleep 60</span><br></pre></td></tr></table></figure>
+<h3 id="audio"><a class="markdownIt-Anchor" href="#audio"></a> Audio</h3>
+<h4 id="set-audio-volume"><a class="markdownIt-Anchor" href="#set-audio-volume"></a> Set Audio Volume</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e &apos;set volume 4&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="play-audio-file"><a class="markdownIt-Anchor" href="#play-audio-file"></a> Play Audio File</h4>
+<p>You can play all audio formats that are natively supported by QuickTime.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">afplay -q 1 filename.mp3</span><br></pre></td></tr></table></figure>
+<h3 id="tts"><a class="markdownIt-Anchor" href="#tts"></a> TTS</h3>
+<p>吐槽下，综合各方面考虑，Mac 上可用的 TTS 大概最好的就是系统自带的了。然而——还是那么地垃圾……</p>
+<h4 id="speak-text-with-system-default-voice-用-tts-发音朗读文本"><a class="markdownIt-Anchor" href="#speak-text-with-system-default-voice-用-tts-发音朗读文本"></a> Speak Text with System Default Voice 用 TTS 发音朗读文本</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">say &apos;All your base are belong to us!&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="create-audiobook-from-text"><a class="markdownIt-Anchor" href="#create-audiobook-from-text"></a> Create Audiobook From Text</h4>
+<p>Uses “Alex” voice, a plain UTF-8 encoded text file for input and AAC output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">say -v Alex -f file.txt -o &quot;output.m4a&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="networking-tools-网络工具"><a class="markdownIt-Anchor" href="#networking-tools-网络工具"></a> Networking Tools 网络工具</h3>
+<h4 id="ping-a-host-to-see-whether-its-available"><a class="markdownIt-Anchor" href="#ping-a-host-to-see-whether-its-available"></a> Ping a Host to See Whether It’s Available</h4>
+<p>这个大概是天朝特色了……</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -o github.com</span><br></pre></td></tr></table></figure>
+<h4 id="troubleshoot-routing-problems"><a class="markdownIt-Anchor" href="#troubleshoot-routing-problems"></a> Troubleshoot Routing Problems</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute github.com</span><br></pre></td></tr></table></figure>
+<h3 id="ssh"><a class="markdownIt-Anchor" href="#ssh"></a> SSH</h3>
+<h4 id="remote-login-远程登录"><a class="markdownIt-Anchor" href="#remote-login-远程登录"></a> Remote Login 远程登录</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Enable remote login</span><br><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist</span><br><span class="line"></span><br><span class="line"># Disable remote login</span><br><span class="line">sudo launchctl unload -w /System/Library/LaunchDaemons/ssh.plist</span><br></pre></td></tr></table></figure>
+<h3 id="tcpip"><a class="markdownIt-Anchor" href="#tcpip"></a> TCP/IP</h3>
+<h4 id="show-application-using-a-certain-port-显示当前占用特定端口的应用列表-强烈推荐"><a class="markdownIt-Anchor" href="#show-application-using-a-certain-port-显示当前占用特定端口的应用列表-强烈推荐"></a> Show Application Using a Certain Port 显示当前占用特定端口的应用列表 （<code>强烈推荐</code>）</h4>
+<p>这个用来检查端口占用很不错</p>
+<p>This outputs all applications currently using port 80.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :80</span><br></pre></td></tr></table></figure>
+<h4 id="show-external-ip-address"><a class="markdownIt-Anchor" href="#show-external-ip-address"></a> Show External IP Address</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig +short myip.opendns.com @resolver1.opendns.com</span><br></pre></td></tr></table></figure>
+<h3 id="wi-fi"><a class="markdownIt-Anchor" href="#wi-fi"></a> Wi-Fi</h3>
+<h4 id="show-local-ip-address"><a class="markdownIt-Anchor" href="#show-local-ip-address"></a> Show Local IP Address</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig getifaddr en0</span><br></pre></td></tr></table></figure>
+<h4 id="show-wi-fi-connection-history"><a class="markdownIt-Anchor" href="#show-wi-fi-connection-history"></a> Show Wi-Fi Connection History</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults read /Library/Preferences/SystemConfiguration/com.apple.airport.preferences | grep LastConnected -A 7</span><br></pre></td></tr></table></figure>
+<h4 id="show-wi-fi-network-passwords"><a class="markdownIt-Anchor" href="#show-wi-fi-network-passwords"></a> Show Wi-Fi Network Passwords</h4>
+<p>Exchange SSID with the SSID of the access point you wish to query the password from.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">security find-generic-password -D &quot;AirPort network password&quot; -a &quot;SSID&quot; -gw</span><br></pre></td></tr></table></figure>
+<h3 id="spotlight"><a class="markdownIt-Anchor" href="#spotlight"></a> Spotlight</h3>
+<p>这个要怎么用？听说这个很久了，还没去具体了解使用</p>
+<h4 id="spotlight-indexing"><a class="markdownIt-Anchor" href="#spotlight-indexing"></a> Spotlight Indexing</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Disable</span><br><span class="line">mdutil -i off -d /path/to/volume</span><br><span class="line"></span><br><span class="line"># Enable (Default)</span><br><span class="line">mdutil -i on /path/to/volume</span><br></pre></td></tr></table></figure>
+<h4 id="erase-spotlight-index-and-rebuild-重建索引"><a class="markdownIt-Anchor" href="#erase-spotlight-index-and-rebuild-重建索引"></a> Erase Spotlight Index and Rebuild 重建索引</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdutil -E /path/to/volume</span><br></pre></td></tr></table></figure>
+<h4 id="search-via-spotlight-搜索"><a class="markdownIt-Anchor" href="#search-via-spotlight-搜索"></a> Search via Spotlight 搜索</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdfind -name &apos;searchterm&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="show-spotlight-indexed-metadata"><a class="markdownIt-Anchor" href="#show-spotlight-indexed-metadata"></a> Show Spotlight Indexed Metadata</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mdls /path/to/file</span><br></pre></td></tr></table></figure>
+<h3 id="screenshots-屏幕截图"><a class="markdownIt-Anchor" href="#screenshots-屏幕截图"></a> Screenshots 屏幕截图</h3>
+<p>目前在用软件<code>Snip</code>，满足基本所需了</p>
+<h4 id="take-delayed-screenshot"><a class="markdownIt-Anchor" href="#take-delayed-screenshot"></a> Take Delayed Screenshot</h4>
+<p>Takes a screenshot as JPEG after 3 seconds and displays in Preview.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screencapture -T 3 -t jpg -P delayedpic.jpg</span><br></pre></td></tr></table></figure>
+<h4 id="save-screenshots-to-given-location"><a class="markdownIt-Anchor" href="#save-screenshots-to-given-location"></a> Save Screenshots to Given Location</h4>
+<p>Sets location to <code>~/Desktop</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~/Desktop &amp;&amp; \</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<h4 id="save-screenshots-in-given-format"><a class="markdownIt-Anchor" href="#save-screenshots-in-given-format"></a> Save Screenshots in Given Format</h4>
+<p>Sets format to <code>png</code>. Other options are <code>bmp</code>, <code>gif</code>, <code>jpg</code>, <code>jpeg</code>, <code>pdf</code>, <code>tiff</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture type -string &quot;png&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="disable-shadow-in-screenshots-隐藏截图里的阴影"><a class="markdownIt-Anchor" href="#disable-shadow-in-screenshots-隐藏截图里的阴影"></a> Disable Shadow in Screenshots 隐藏截图里的阴影</h4>
+<p>有阴影好看很多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture disable-shadow -bool true &amp;&amp; \</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<h4 id="set-default-screenshot-name"><a class="markdownIt-Anchor" href="#set-default-screenshot-name"></a> Set Default Screenshot Name</h4>
+<p>Date and time remain unchanged.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture name &quot;Example name&quot; &amp;&amp; \</span><br><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<h3 id="login-window"><a class="markdownIt-Anchor" href="#login-window"></a> Login Window</h3>
+<h4 id="set-login-window-text"><a class="markdownIt-Anchor" href="#set-login-window-text"></a> Set Login Window Text</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText &quot;Your text&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="security"><a class="markdownIt-Anchor" href="#security"></a> Security</h3>
+<h3 id="application-firewall"><a class="markdownIt-Anchor" href="#application-firewall"></a> Application Firewall</h3>
+<p>这个是不是可以阻止应用联网？？（之前试了下，好像没什么效果，😓）</p>
+<h4 id="firewall-service"><a class="markdownIt-Anchor" href="#firewall-service"></a> Firewall Service</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Show Status</span><br><span class="line">sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate</span><br><span class="line"></span><br><span class="line"># Enable</span><br><span class="line">sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on</span><br><span class="line"></span><br><span class="line"># Disable (Default)</span><br><span class="line">sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off</span><br></pre></td></tr></table></figure>
+<h4 id="add-application-to-firewall"><a class="markdownIt-Anchor" href="#add-application-to-firewall"></a> Add Application to Firewall</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /path/to/file</span><br></pre></td></tr></table></figure>
+<h3 id="passwords"><a class="markdownIt-Anchor" href="#passwords"></a> Passwords</h3>
+<h4 id="generate-secure-password-and-copy-to-clipboard"><a class="markdownIt-Anchor" href="#generate-secure-password-and-copy-to-clipboard"></a> Generate Secure Password and Copy to Clipboard</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LC_ALL=C tr -dc &quot;[:alpha:][:alnum:]&quot; &lt; /dev/urandom | head -c 20 | pbcopy</span><br></pre></td></tr></table></figure>
+<h3 id="physical-access"><a class="markdownIt-Anchor" href="#physical-access"></a> Physical Access</h3>
+<h4 id="launch-screen-saver-启动屏幕保护程序"><a class="markdownIt-Anchor" href="#launch-screen-saver-启动屏幕保护程序"></a> Launch Screen Saver  启动屏幕保护程序</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app</span><br></pre></td></tr></table></figure>
+<h4 id="lock-screen-锁屏"><a class="markdownIt-Anchor" href="#lock-screen-锁屏"></a> Lock Screen 锁屏</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend</span><br></pre></td></tr></table></figure>
+<h4 id="screensaver-immediate-lock"><a class="markdownIt-Anchor" href="#screensaver-immediate-lock"></a> Screensaver Immediate Lock</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Status</span><br><span class="line">defaults read com.apple.screensaver askForPasswordDelay</span><br><span class="line"></span><br><span class="line"># Enable (Default)</span><br><span class="line">defaults write com.apple.screensaver askForPasswordDelay -int 0</span><br><span class="line"></span><br><span class="line"># Disable (Integer = lock delay in seconds)</span><br><span class="line">defaults write com.apple.screensaver askForPasswordDelay -int 10</span><br></pre></td></tr></table></figure>
+<h4 id="screensaver-password"><a class="markdownIt-Anchor" href="#screensaver-password"></a> Screensaver Password</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Status</span><br><span class="line">defaults read com.apple.screensaver askForPassword</span><br><span class="line"></span><br><span class="line"># Enable</span><br><span class="line">defaults write com.apple.screensaver askForPassword -int 1</span><br><span class="line"></span><br><span class="line"># Disable (Default)</span><br><span class="line">defaults write com.apple.screensaver askForPassword -int 0</span><br></pre></td></tr></table></figure>
+<h4 id="shutdown-关机"><a class="markdownIt-Anchor" href="#shutdown-关机"></a> Shutdown 关机</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo poweroff</span><br></pre></td></tr></table></figure>
+<h4 id="uptime-已开机时间"><a class="markdownIt-Anchor" href="#uptime-已开机时间"></a> Uptime 已开机时间</h4>
+<p>How long since your last restart.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> uptime</span></span><br><span class="line">15:38  up 19 days, 14:48, 6 users, load averages: 1.85 1.55 1.47</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Mac/dotfiles/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    dotfiles
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/Mac/homebrew/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Homebrew</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            hmgqzx &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/wiki/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/wiki/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/wiki/js/main.js"></script>
+
+    </div>
+</body>
+</html>

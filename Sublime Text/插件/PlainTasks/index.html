@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>PlainTasks | Hmgqzx&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="番茄工作法" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。 我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如2017-07-16.todo；脑里蹦出来的注意放在临时的collect.todo；经过整理、安排后的将来计划放入activity-inventory.todo） 阅读插件主页获取更多信息：aziz/PlainTasks:">
+<meta name="keywords" content="番茄工作法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PlainTasks">
+<meta property="og:url" content="https://hmgqzx.github.io/wiki/Sublime Text/插件/PlainTasks/index.html">
+<meta property="og:site_name" content="Hmgqzx&#39;s Wiki">
+<meta property="og:description" content="PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。 我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如2017-07-16.todo；脑里蹦出来的注意放在临时的collect.todo；经过整理、安排后的将来计划放入activity-inventory.todo） 阅读插件主页获取更多信息：aziz/PlainTasks:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-01T18:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PlainTasks">
+<meta name="twitter:description" content="PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。 我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如2017-07-16.todo；脑里蹦出来的注意放在临时的collect.todo；经过整理、安排后的将来计划放入activity-inventory.todo） 阅读插件主页获取更多信息：aziz/PlainTasks:">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hmgqzx&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/wiki/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/wiki/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/wiki/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/wiki/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/wiki/css/style.css">
+    <script src="/wiki/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/wiki/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/wiki/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-102767719-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d7a46b5b4bfe6d00a9059464ac12bac7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/wiki/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hmgqzx&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/wiki/">首页</a>
+                
+                    <a class="main-nav-link" href="/wiki/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/wiki/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/wiki/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/wiki/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/wiki/',
+        CONTENT_URL: '/wiki/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/wiki/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/wiki/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/wiki/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            42
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/42/有限状态机/">有限状态机 FSM</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 中提交注释相关
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 中提交注释相关/Git-提交大段注释/">Git 中提交一大段、多行的注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git 命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/Git 命令/Git-常用命令/">Git 常用命令</a></li>  <li class="file"><a href="/wiki/Git/Git 命令/Git-alias别名/">Git 命令的 alias 别名</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Git/Git-其他相关问题/">Git 其他常见相关问题</a></li>  <li class="file"><a href="/wiki/Git/Git-学习资源/">Git 的学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Hexo/Hexo 博客搭建过程注意点/">Hexo 博客搭建过程注意点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/JavaScript/回调函数/">JavaScript 中的回调</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            LaTex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/LaTex/LaTeX/">LaTeX</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mac
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用命令行软件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用命令行软件/Aria2/">Aria 2 —— Mac 的下载利器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用软件常用快捷键
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/Chrome/">Chrome 易忘快捷键</a></li>  <li class="file"><a href="/wiki/Mac/常用软件常用快捷键/index/">Mac OS X 下常用软件的常用快捷键</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Mac/Dock/">Dock</a></li>  <li class="file"><a href="/wiki/Mac/QuickLook 预览增强插件/">QuickLook 预览增强插件</a></li>  <li class="file"><a href="/wiki/Mac/dotfiles/">dotfiles</a></li>  <li class="file"><a href="/wiki/Mac/Mac 命令行工具/">Mac OS X 里特有的那些命令行</a></li>  <li class="file"><a href="/wiki/Mac/homebrew/">Homebrew</a></li>  <li class="file"><a href="/wiki/Mac/使用技巧/">Mac 使用技巧</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习资源推荐
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/学习资源推荐/Python在线学习资源/">Python 的在线学习资源</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            常用札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/常用札记/Python 字典/">Python 字典的常用知识</a></li>  <li class="file"><a href="/wiki/Python/常用札记/Python 字符串/">Python 字符串的常用知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            模块用法
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/模块用法/模块导入/">Python 模块的导入</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Python/Python 数据持久化/">Python 数据持久化</a></li>  <li class="file"><a href="/wiki/Python/Python 常量/">Python 中的常量</a></li>  <li class="file"><a href="/wiki/Python/Python 虚拟环境/">Pyenv —— Python版本管理工具</a></li>  <li class="file"><a href="/wiki/Python/pyc文件/">pyc文件</a></li>  <li class="file"><a href="/wiki/Python/collections模块/">Python collections模块</a></li>  <li class="file"><a href="/wiki/Python/pickle/">pickle</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Sublime Text
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            BracketHighlight
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/BracketHighlight/BracketHighlight 配置/">BracketHighlight 配置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Emmet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Sublime Text/插件/Emmet/Emmet 语法/">Emmet 语法简单总结</a></li>  </ul> 
+                    </li> 
+                     <li class="file active"><a href="/wiki/Sublime Text/插件/PlainTasks/">PlainTasks</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/Sublime Text 插件/">Sublime Text 插件</a></li>  <li class="file"><a href="/wiki/Sublime Text/插件/SideBarEnhancements/">SideBarEnhancements</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Sublime Text/Sublime Text 主题/">Sublime Text 主题</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Unix
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Unix/ssh/">SSH</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vim 札记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vim/Vim 札记/Vim中设置tab与空格/">Vim 中设置 tab 自动转换为 4 个空格</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Zsh
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            插件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Zsh/插件/autojump/">autojump 自动跳转目录</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Zsh/zsh-安装/">Zsh 安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            书籍阅读笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                             Code Complete 代码大全
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 14 - 组织直线型代码
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.1 语句必须明确顺序/">14.1 语句必须明确顺序</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 14 - 组织直线型代码/14.2 顺序无关的语句/">14.2 顺序无关的语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 15 使用条件语句
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 15 使用条件语句/15.2 case 语句/">15.2 case 语句</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 16 控制循环 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.1  选择循环的种类/">16.1  选择循环的种类</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.3 轻松创建循环——由内而外/">16.3 轻松创建循环——由内而外</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.2 循环的控制/">16.2 循环的控制</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 16 控制循环 /16.4 循环和数组的关系/">16.4 循环和数组的关系</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Chapter 19 一般控制问题
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.1 布尔表达式/">19.1 布尔表达式</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.2 复合语句（语句块）/">19.2 复合语句（语句块）</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.3 空语句/">19.3 空语句</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.4 驯服危险的深层嵌套/">19.4 驯服危险的深层嵌套</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/">19.6 控制结构与复杂度</a></li>  <li class="file"><a href="/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.5 编程基础：结构化编程/">19.5 编程基础：结构化编程</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            健身
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            动作
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            abs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/abs/Plank/"></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            arms
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/arms/Barbell Curl/">Barbell Curl 杠铃弯举</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            back
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/back/Barbell Deadlift/">Barbell Deadlift</a></li>  <li class="file"><a href="/wiki/健身/动作/back/Wide-Grip Lat Pulldown/">Wide-Grip Lat Pulldown</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            chest
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/chest/Dumbbell Bench Press/">Dumbbell Bench Press</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            legs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/legs/Squat/">Squat 深蹲</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            shoulder
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/健身/动作/shoulder/Standing Military Press/">Standing Military Press</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元理论
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/元理论/元学习/元学习理论/">元学习理论</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            其他工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/其他工具/PlantUML/">PlantUML —— UML 绘图工具</a></li>  <li class="file"><a href="/wiki/其他工具/nodePPT/">nodePPT —— 自动化生成 PPT</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            感冒
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/生活/感冒/对乙酰氨基酚/">对乙酰氨基酚</a></li>  <li class="file"><a href="/wiki/生活/感冒/布洛芬/">布洛芬</a></li>  <li class="file"><a href="/wiki/生活/感冒/感冒/">感冒</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">Welcome to Hmgqzx's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Sublime Text/插件/PlainTasks" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/wiki/categories/Sublime-Text/">Sublime Text</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/wiki/categories/Sublime-Text/插件/">插件</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/wiki/tags/番茄工作法/">番茄工作法</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Sublime Text/插件/PlainTasks/">
+            <time datetime="2018-03-01T18:13:19.000Z" itemprop="datePublished">2018-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/raw/master/source/_posts/Sublime Text/插件/PlainTasks.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/edit/master/source/_posts/Sublime Text/插件/PlainTasks.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/hmgqzx/wiki/commits/master/source/_posts/Sublime Text/插件/PlainTasks.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            PlainTasks
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#笔记"><span class="toc-number">1.</span> <span class="toc-text"> 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#editor-useful-tools"><span class="toc-number">1.1.</span> <span class="toc-text"> Editor Useful Tools:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#due-格式"><span class="toc-number">1.2.</span> <span class="toc-text"> due 格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#changing-color-scheme"><span class="toc-number">1.3.</span> <span class="toc-text"> Changing color scheme</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.</span> <span class="toc-text"> 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预览mac-空格键"><span class="toc-number">2.1.</span> <span class="toc-text"> 预览（Mac 空格键）</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。</p>
+<p>我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如<code>2017-07-16.todo</code>；脑里蹦出来的注意放在临时的<code>collect.todo</code>；经过整理、安排后的将来计划放入<code>activity-inventory.todo</code>）</p>
+<p>阅读插件主页获取更多信息：<a href="https://github.com/aziz/PlainTasks" target="_blank" rel="noopener">aziz/PlainTasks: An opinionated todo-list plugin for Sublime Text editor (version 2 and 3)</a></p>
+<h2 id="笔记"><a class="markdownIt-Anchor" href="#笔记"></a> 笔记</h2>
+<p>下面是我学习使用该插件过程中的一点笔记（较简略，我只是为了掌握更多所需的内容而摘抄节选在此）</p>
+<ul>
+<li>
+<p>标签快捷添加</p>
+<ul>
+<li>type <code>t</code>, press <code>tab</code> — it’ll become <code>@today</code> — this one is highlighted differently than other tags;</li>
+<li><code>c</code>, <code>tab</code> — <code>@critical</code>;</li>
+<li><code>h</code>, <code>tab</code> — <code>@high</code>;</li>
+<li><code>l</code>, <code>tab</code> — <code>@low</code>;</li>
+</ul>
+</li>
+<li>
+<p>打开超链接：<code>cmd + shift + U</code></p>
+<ul>
+<li>超链接格式：<a href="skype:nickname" target="_blank" rel="noopener">skype:nickname</a></li>
+</ul>
+</li>
+<li>
+<p>file link：.\filename ，一行一个文件</p>
+<ul>
+<li>有点疑惑，支持什么格式?——在 tutorial 里有，在 preferences-&gt;package setting 中</li>
+</ul>
+</li>
+<li>
+<p>notes</p>
+<ul>
+<li>Use <code>_</code> or <code>*</code> for italic and bold just like in Markdown.</li>
+</ul>
+</li>
+<li>
+<p>截止日期 （<code>高频使用</code>）</p>
+<ul>
+<li><code>d</code>, tab — <code>@due( )</code></li>
+<li>详细格式见下面</li>
+</ul>
+</li>
+</ul>
+<h3 id="editor-useful-tools"><a class="markdownIt-Anchor" href="#editor-useful-tools"></a> Editor Useful Tools:</h3>
+<ul>
+<li>Use <code>⌘ + control + up/down</code> to move tasks up and down.</li>
+<li>Use <code>⌘ + r</code> to see a list of projects and quickly jump between them</li>
+</ul>
+<h3 id="due-格式"><a class="markdownIt-Anchor" href="#due-格式"></a> due 格式</h3>
+<p>比较常用的：</p>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@due(+)</code></td>
+<td>tomorrow as well as <code>@due( +1)</code> or <code>@due( +1d)</code></td>
+</tr>
+<tr>
+<td><code>@due(+2:)</code></td>
+<td>two hours since current date</td>
+</tr>
+<tr>
+<td><code>@due(+:555)</code></td>
+<td>555 minutes since current date</td>
+</tr>
+</tbody>
+</table>
+<p>解释：格式是 <code>+[number][DdWw][h:m]</code></p>
+<p><code>[ ]</code>里的选项是可选的，当没有指定<code>[DdWw]</code>的选项时，<code>[number]</code>默认是天数，单独指定小时使用<code>[h:]</code>，单独指定分钟数使用<code>[:m]</code>（因为要指定是0 hour，不然少了 <code>:</code> 就解析为天数了）</p>
+<p>更多请看插件主页</p>
+<h3 id="changing-color-scheme"><a class="markdownIt-Anchor" href="#changing-color-scheme"></a> Changing color scheme</h3>
+<p>我不喜欢默认的屎黄色……还是黑色好点。在 <code>preferences-&gt;package setting</code> 中可以找到设置，里面的配置文件提供了几个主题</p>
+<blockquote>
+<p>If you don’t like colors used in bundled schemes just copy any <code>.hidden-tmTheme</code> from PlainTasks to your User directory, change colors and paste the code below in your user settings file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&#123; &quot;color_scheme&quot;: &quot;Path to your custom color scheme file. e.g. Packages/User/custom_plaintasks.hidden-tmTheme&quot; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>N.B.</strong>, sometimes you have to restart Sublime Text to apply changes made in tmTheme file.<br>
+<strong>N.B.</strong>, <code>scope_past_due</code>, <code>scope_due_soon</code>, and <code>scope_misformatted</code> settings can assign any scopes defined in tmTheme file, e.g. you can set <code>&quot;scope_past_due&quot;: &quot;my.own.super.expired.whatever&quot;</code> and then just add style definition in tmTheme for this scope.</p>
+</blockquote>
+<h2 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h2>
+<h3 id="预览mac-空格键"><a class="markdownIt-Anchor" href="#预览mac-空格键"></a> 预览（Mac 空格键）</h3>
+<p><a href="https://github.com/whomwah/qlstephen" target="_blank" rel="noopener">qlstephen</a> 这个插件虽然声称只是用来预览 without a file extension 的纯文本，但经测试，也可以预览 .todo 后缀的文件</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Python/模块用法/模块导入/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Python 模块的导入
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/Sublime Text/插件/Sublime Text 插件/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Sublime Text 插件</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            hmgqzx &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/wiki/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/wiki/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/wiki/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/wiki/js/main.js"></script>
+
+    </div>
+</body>
+</html>
