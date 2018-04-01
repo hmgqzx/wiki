@@ -17,55 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>PlainTasks</title>
-    <link href="https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/PlainTasks/"/>
-    <id>https://hmgqzx.github.io/wiki/Sublime Text/插件/PlainTasks/</id>
+    <title>有限状态机 FSM</title>
+    <link href="https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/"/>
+    <id>https://hmgqzx.github.io/wiki/42/有限状态机/</id>
     <published>2018-03-01T18:13:19.000Z</published>
     <updated>2018-03-01T18:13:19.000Z</updated>
     
-    <content type="html"><![CDATA[<p>PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。</p><p>我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如<code>2017-07-16.todo</code>；脑里蹦出来的注意放在临时的<code>collect.todo</code>；经过整理、安排后的将来计划放入<code>activity-inventory.todo</code>）</p><p>阅读插件主页获取更多信息：<a href="https://github.com/aziz/PlainTasks" target="_blank" rel="noopener">aziz/PlainTasks: An opinionated todo-list plugin for Sublime Text editor (version 2 and 3)</a></p><h2 id="笔记"><a class="markdownIt-Anchor" href="#笔记"></a> 笔记</h2><p>下面是我学习使用该插件过程中的一点笔记（较简略，我只是为了掌握更多所需的内容而摘抄节选在此）</p><ul><li><p>标签快捷添加</p><ul><li>type <code>t</code>, press <code>tab</code> — it’ll become <code>@today</code> — this one is highlighted differently than other tags;</li><li><code>c</code>, <code>tab</code> — <code>@critical</code>;</li><li><code>h</code>, <code>tab</code> — <code>@high</code>;</li><li><code>l</code>, <code>tab</code> — <code>@low</code>;</li></ul></li><li><p>打开超链接：<code>cmd + shift + U</code></p><ul><li>超链接格式：<a href="skype:nickname" target="_blank" rel="noopener">skype:nickname</a></li></ul></li><li><p>file link：.\filename ，一行一个文件</p><ul><li>有点疑惑，支持什么格式?——在 tutorial 里有，在 preferences-&gt;package setting 中</li></ul></li><li><p>notes</p><ul><li>Use <code>_</code> or <code>*</code> for italic and bold just like in Markdown.</li></ul></li><li><p>截止日期 （<code>高频使用</code>）</p><ul><li><code>d</code>, tab — <code>@due( )</code></li><li>详细格式见下面</li></ul></li></ul><h3 id="editor-useful-tools"><a class="markdownIt-Anchor" href="#editor-useful-tools"></a> Editor Useful Tools:</h3><ul><li>Use <code>⌘ + control + up/down</code> to move tasks up and down.</li><li>Use <code>⌘ + r</code> to see a list of projects and quickly jump between them</li></ul><h3 id="due-格式"><a class="markdownIt-Anchor" href="#due-格式"></a> due 格式</h3><p>比较常用的：</p><table><thead><tr><th>Notation</th><th>Meaning</th></tr></thead><tbody><tr><td><code>@due(+)</code></td><td>tomorrow as well as <code>@due( +1)</code> or <code>@due( +1d)</code></td></tr><tr><td><code>@due(+2:)</code></td><td>two hours since current date</td></tr><tr><td><code>@due(+:555)</code></td><td>555 minutes since current date</td></tr></tbody></table><p>解释：格式是 <code>+[number][DdWw][h:m]</code></p><p><code>[ ]</code>里的选项是可选的，当没有指定<code>[DdWw]</code>的选项时，<code>[number]</code>默认是天数，单独指定小时使用<code>[h:]</code>，单独指定分钟数使用<code>[:m]</code>（因为要指定是0 hour，不然少了 <code>:</code> 就解析为天数了）</p><p>更多请看插件主页</p><h3 id="changing-color-scheme"><a class="markdownIt-Anchor" href="#changing-color-scheme"></a> Changing color scheme</h3><p>我不喜欢默认的屎黄色……还是黑色好点。在 <code>preferences-&gt;package setting</code> 中可以找到设置，里面的配置文件提供了几个主题</p><blockquote><p>If you don’t like colors used in bundled schemes just copy any <code>.hidden-tmTheme</code> from PlainTasks to your User directory, change colors and paste the code below in your user settings file:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&#123; &quot;color_scheme&quot;: &quot;Path to your custom color scheme file. e.g. Packages/User/custom_plaintasks.hidden-tmTheme&quot; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><blockquote><p><strong>N.B.</strong>, sometimes you have to restart Sublime Text to apply changes made in tmTheme file.<br><strong>N.B.</strong>, <code>scope_past_due</code>, <code>scope_due_soon</code>, and <code>scope_misformatted</code> settings can assign any scopes defined in tmTheme file, e.g. you can set <code>&quot;scope_past_due&quot;: &quot;my.own.super.expired.whatever&quot;</code> and then just add style definition in tmTheme for this scope.</p></blockquote><h2 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h2><h3 id="预览mac-空格键"><a class="markdownIt-Anchor" href="#预览mac-空格键"></a> 预览（Mac 空格键）</h3><p><a href="https://github.com/whomwah/qlstephen" target="_blank" rel="noopener">qlstephen</a> 这个插件虽然声称只是用来预览 without a file extension 的纯文本，但经测试，也可以预览 .todo 后缀的文件</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="http://image.beekka.com/blog/201309/bg2013090201.png" alt="img"></p><h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2><p>有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><h2 id="特征"><a class="markdownIt-Anchor" href="#特征"></a> 特征</h2><p>简单说，它有三个特征<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p><ul><li>状态总数（state）是有限的。</li><li>任一时刻，只处在一种状态之中。</li><li>某种条件下，会从一种状态转变（transition）到另一种状态。</li></ul><h2 id="几个重要概念"><a class="markdownIt-Anchor" href="#几个重要概念"></a> 几个重要概念<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2><ul><li>状态（State）：表示对象的某种形态，在当前形态下可能会拥有不同的行为和属性。</li><li>转移（Transition）：表示状态变更，并且必须满足确使转移发生的条件来执行。</li><li>动作（Action）：表示在给定时刻要进行的活动。</li><li>事件（Event）：事件通常会引起状态的变迁，促使状态机从一种状态切换到另一种状态。</li></ul><h2 id="状态机的要素"><a class="markdownIt-Anchor" href="#状态机的要素"></a> 状态机的要素<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></h2><p>状态机可归纳为4个要素，即现态、条件、动作、次态。“现态”和“条件”是因，“动作”和“次态”是果。详解如下：</p><ul><li>现态：当前所处的状态。</li><li>条件：又称为“事件”。当一个条件被满足，将会触发一个动作，或者执行一次状态的迁移。</li><li>动作：条件满足后执行的动作。动作执行完毕后，可以迁移到新的状态，也可以仍旧保持原状态。动作不是必需的，当条件满足后，也可以不执行任何动作，直接迁移到新状态。</li><li><mark>次态</mark>：条件满足后要迁往的新状态。“次态”是相对于“现态”而言的，“次态”一旦被激活，就转变成新的“现态”了。</li></ul><p>我们可以用状态表了表示整个过程，如下图所示。</p><blockquote><p>状态表</p><p><img src="http://upload-images.jianshu.io/upload_images/1133568-8bedb833289081b7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p></blockquote><h2 id="注意的问题"><a class="markdownIt-Anchor" href="#注意的问题"></a> 注意的问题</h2><p><strong>避免把某个“程序动作”当作是一种“状态”来处理</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p><p>那么如何区分“动作”和“状态”？“动作”是不稳定的，即使没有条件的触发，“动作”一旦执行完毕就结束了；<mark>而“状态”是相对稳定的</mark>，如果没有外部条件的触发，一个状态会一直持续下去。</p><h2 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h2><h3 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h3><p>有限状态机用来编游戏和故事是最好的了。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>这有一个寻宝游戏，首先你从‘开始’出发，然后你跟随箭头知道你到达终点。</p><p><img src="http://www.programmingbasics.org/zh/beginner/img/fsm3.png" alt="img"></p><h2 id="褒扬和批判"><a class="markdownIt-Anchor" href="#褒扬和批判"></a> 褒扬和批判</h2><h3 id="游戏开发"><a class="markdownIt-Anchor" href="#游戏开发"></a> 游戏开发</h3><p>在游戏开发中使用状态机显然不失为一种不错的选择，首先它的概念并不复杂，其次它的实现也十分简单而直接。但它的缺点却也十分明显，例如难以复用，因为它往往需要根据具体的情况来做出反应，当然当状态机的模型复杂到一定的程度之后，也会带来实现和维护上的困难。<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></p><h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2><p>参考：<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p><p>代码相关：<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup></p><blockquote><p>对JavaScript的意义在于，很多对象可以写成有限状态机。</p></blockquote><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="http://www.jianshu.com/p/5eb45c64f3e3" target="_blank" rel="noopener">深入浅出理解有限状态机 - 简书</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2013/09/finite-state_machine_for_javascript.html" target="_blank" rel="noopener">JavaScript与有限状态机 - 阮一峰的网络日志</a> <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="https://segmentfault.com/a/1190000004241958" target="_blank" rel="noopener">趣说游戏AI开发：对状态机的褒扬和批判 - Runtime - SegmentFault</a> <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p><a href="http://www.programmingbasics.org/zh/beginner/fsm.html" target="_blank" rel="noopener">Programming Basics: 有限状态机</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="noopener">有限状态机 - 维基百科，自由的百科全书</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;PlainTasks 是一个Sublime Text 插件，可以用来管理 todo-list。&lt;/p&gt;
-&lt;p&gt;我目前是利用它来帮助践行番茄工作法（每天的 todo 作为单独的一个文件记录，如&lt;code&gt;2017-07-16.todo&lt;/code&gt;；脑里蹦出来的注意放在临时的
+        &lt;p&gt;&lt;img src=&quot;http://image.beekka.com/blog/201309/bg2013090201.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#定义&quot;&gt;&lt;/a&gt; 定
       
     
     </summary>
     
-      <category term="Sublime Text" scheme="https://hmgqzx.github.io/wiki/categories/Sublime-Text/"/>
+      <category term="42" scheme="https://hmgqzx.github.io/wiki/categories/42/"/>
     
-      <category term="插件" scheme="https://hmgqzx.github.io/wiki/categories/Sublime-Text/%E6%8F%92%E4%BB%B6/"/>
-    
-    
-      <category term="番茄工作法" scheme="https://hmgqzx.github.io/wiki/tags/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95/"/>
     
   </entry>
   
   <entry>
-    <title>Python 字符串的常用知识</title>
-    <link href="https://hmgqzx.github.io/wiki/Python/%E5%B8%B8%E7%94%A8%E6%9C%AD%E8%AE%B0/Python%20%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>https://hmgqzx.github.io/wiki/Python/常用札记/Python 字符串/</id>
+    <title>Python 模块的导入</title>
+    <link href="https://hmgqzx.github.io/wiki/Python/%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95/%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5/"/>
+    <id>https://hmgqzx.github.io/wiki/Python/模块用法/模块导入/</id>
     <published>2018-03-01T18:13:19.000Z</published>
     <updated>2018-03-01T18:13:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="字符串处理"><a class="markdownIt-Anchor" href="#字符串处理"></a> 字符串处理</h2><h3 id="删除字符串中不需要的字符"><a class="markdownIt-Anchor" href="#删除字符串中不需要的字符"></a> 删除字符串中不需要的字符</h3><p><code>strip()</code> 方法能用于删除开始或结尾的字符。 <code>lstrip()</code> 和 <code>rstrip()</code> 分别从左和从右执行删除操作。 默认情况下，这些方法会去除空白字符，但是你也可以指定其他字符<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><p>需要注意的是这些 <code>strip</code>方法不会对字符串的中间的文本执行去除操作。<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p><p>如果要处理中间的空格，需要使用 <code>replace()</code>方法或者是用正则表达式进行替换<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p><h3 id="查找是否含有某个子字符串"><a class="markdownIt-Anchor" href="#查找是否含有某个子字符串"></a> 查找是否含有某个子字符串</h3><p>最快、最简洁的方法是<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> text <span class="keyword">in</span> string:  </span><br><span class="line"><span class="keyword">pass</span></span><br></pre></td></tr></table></figure><h3 id="str-和-数值类型的转化"><a class="markdownIt-Anchor" href="#str-和-数值类型的转化"></a> str 和 数值类型的转化</h3><p>Python 中的都是在方法中传入参数，非常简单<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'123'</span>)</span><br><span class="line">str(<span class="number">123</span>)</span><br></pre></td></tr></table></figure><h2 id="注脚"><a class="markdownIt-Anchor" href="#注脚"></a> 注脚</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p11_strip_unwanted_characters.html" target="_blank" rel="noopener">2.11 删除字符串中不需要的字符 — python3-cookbook 2.0.0 文档</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="https://stackoverflow.com/questions/4901523/whats-a-faster-operation-re-match-search-or-str-find" target="_blank" rel="noopener">python - What’s a faster operation, re.match/search or str.find? - Stack Overflow</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="http://blog.csdn.net/shanliangliuxing/article/details/7920400" target="_blank" rel="noopener">python数据类型转换（str跟int的转换） - Hello World! - CSDN博客</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    <content type="html"><![CDATA[<h2 id="101"><a class="markdownIt-Anchor" href="#101"></a> 101</h2><p>在平时的使用中，主要是要知道：</p><ul><li><code>常规导入</code>和 <code>使用 from 语句导入</code>这两种不同方式下，该如何调用函数</li></ul><h2 id="常规导入"><a class="markdownIt-Anchor" href="#常规导入"></a> 常规导入<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> random</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>random.randrange(<span class="number">7</span>)<span class="comment"># 调用相关函数时需要说明模块名</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure><p>这种不消多说，只需要使用<code>import</code>一词，然后指定希望导入的模块或包即可。不过调用相关函数时需要像上面那样说明模块名。</p><h3 id="python-风格"><a class="markdownIt-Anchor" href="#python-风格"></a> Python 风格</h3><p>虽然可以一次性导入多个包或模块，但 Python风格指南建议将每个导入语句单独成行。</p><h3 id="对模块重命名"><a class="markdownIt-Anchor" href="#对模块重命名"></a> 对模块重命名</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> random <span class="keyword">as</span> r</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.random()</span><br><span class="line"><span class="number">0.4967213766468448</span></span><br></pre></td></tr></table></figure><h2 id="使用from语句导入"><a class="markdownIt-Anchor" href="#使用from语句导入"></a> 使用from语句导入<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>randint(<span class="number">1</span>,<span class="number">1024</span>) <span class="comment"># 相对于常规导入，使用 from 语句导入可以直接调用该函数</span></span><br><span class="line"><span class="number">779</span></span><br></pre></td></tr></table></figure><p>这种方式允许我们只导入一个模块或库中的某个部分<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。同时，相对于常规导入，使用 from 语句导入可以直接调用该函数。</p><h3 id="全盘导入"><a class="markdownIt-Anchor" href="#全盘导入"></a> 全盘导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure><p>❗️: 虽然这种做法有时挺方便，但是不建议这样做，因为会打乱命名空间，造成混乱。</p><h3 id="选择性导入多个项"><a class="markdownIt-Anchor" href="#选择性导入多个项"></a> 选择性导入多个项</h3><h4 id="圆括号法"><a class="markdownIt-Anchor" href="#圆括号法"></a> 圆括号法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> (path, walk, unlink, uname, </span><br><span class="line">                remove, rename)</span><br></pre></td></tr></table></figure><h4 id="续行符法"><a class="markdownIt-Anchor" href="#续行符法"></a> 续行符法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path, walk, unlink, uname, \</span><br><span class="line">                remove, rename</span><br></pre></td></tr></table></figure><h2 id="相对导入"><a class="markdownIt-Anchor" href="#相对导入"></a> 相对导入<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></h2><h3 id="使用原因"><a class="markdownIt-Anchor" href="#使用原因"></a> 使用原因</h3><p>为了避免偶然情况下导入标准库中的模块产生冲突</p><h3 id="使用场合"><a class="markdownIt-Anchor" href="#使用场合"></a> 使用场合</h3><p>如果你编写了很多相关性强的代码，那么应该采用这种导入方式。<strong>你会发现PyPI上有很多流行的包也是采用了相对导入</strong></p><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><h2 id="注"><a class="markdownIt-Anchor" href="#注"></a> 注</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="http://www.blog.pythonlibrary.org/2016/03/01/python-101-all-about-imports/" target="_blank" rel="noopener">Python 101: All about imports | The Mouse Vs. The Python</a>    中文翻译： <a href="https://codingpy.com/article/python-import-101/" target="_blank" rel="noopener">Python导入模块的几种姿势| 编程派 | Coding Python</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p>在复杂的代码库中，能够看出某个函数是从哪里导入的这点很有用的 <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;字符串处理&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#字符串处理&quot;&gt;&lt;/a&gt; 字符串处理&lt;/h2&gt;
-&lt;h3 id=&quot;删除字符串中不需要的字符&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#删除字符串中不需
+        &lt;h2 id=&quot;101&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#101&quot;&gt;&lt;/a&gt; 101&lt;/h2&gt;
+&lt;p&gt;在平时的使用中，主要是要知道：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;常规导入&lt;/code&gt;和 &lt;code&gt;使用 from 语句导入&lt;/c
       
     
     </summary>
     
       <category term="Python" scheme="https://hmgqzx.github.io/wiki/categories/Python/"/>
     
-      <category term="常用札记" scheme="https://hmgqzx.github.io/wiki/categories/Python/%E5%B8%B8%E7%94%A8%E6%9C%AD%E8%AE%B0/"/>
+      <category term="模块用法" scheme="https://hmgqzx.github.io/wiki/categories/Python/%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95/"/>
     
     
   </entry>
@@ -164,30 +162,6 @@
     </summary>
     
       <category term="JavaScript" scheme="https://hmgqzx.github.io/wiki/categories/JavaScript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Dock</title>
-    <link href="https://hmgqzx.github.io/wiki/Mac/Dock/"/>
-    <id>https://hmgqzx.github.io/wiki/Mac/Dock/</id>
-    <published>2018-03-01T18:13:19.000Z</published>
-    <updated>2018-03-01T18:13:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="综合设置"><a class="markdownIt-Anchor" href="#综合设置"></a> 综合设置</h2><h3 id="只显示已打开应用"><a class="markdownIt-Anchor" href="#只显示已打开应用"></a> 只显示已打开应用<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock static-only -boolean true; killall Dock</span><br><span class="line"><span class="meta">#</span><span class="bash"> 恢复为默认设置：</span></span><br><span class="line">defaults delete com.apple.dock static-only; killall Dock</span><br></pre></td></tr></table></figure><h3 id="关掉-dock-动画"><a class="markdownIt-Anchor" href="#关掉-dock-动画"></a> 关掉 Dock 动画</h3><p>主要参考：<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p><h2 id="隐藏-dock-特定-app-图标"><a class="markdownIt-Anchor" href="#隐藏-dock-特定-app-图标"></a> 隐藏 dock 特定 app 图标</h2><h3 id="主要原理"><a class="markdownIt-Anchor" href="#主要原理"></a> 主要原理</h3><p>在 Info.plist  添加</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>LSUIElement<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>LSUIElement 是 Launch Services Keys <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>中的一项。其 Specifies whether the app is an agent app, that is, an app that should not appear in the Dock or Force Quit window. <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p><p>If this key is set to <code>YES</code>, Launch Services runs the app as an agent app. <sup class="footnote-ref"><a href="#fn4" id="fnref4:1">[4:1]</a></sup></p><h3 id="cli"><a class="markdownIt-Anchor" href="#cli"></a> cli</h3><p>可以用如下命令<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write /Applications/Adium.app/Contents/Info.plist LSUIElement true</span><br></pre></td></tr></table></figure><h3 id="乱码问题"><a class="markdownIt-Anchor" href="#乱码问题"></a> 乱码问题</h3><p>用其他编辑器打开 <code>Info.plist</code> 时，有可能乱码（我不知道什么原因），这时可以使用 Xcode 来打开。它的 Property List Editor 也使得阅读选项非常清晰。<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://sspai.com/post/33493" target="_blank" rel="noopener">装点你的 Dock：外观篇丨一日一技 · Mac - 少数派</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="https://zhuanlan.zhihu.com/p/20667030" target="_blank" rel="noopener">Mac 加速：干掉那些「炫酷」的动画 - MacTips - 知乎专栏</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html" target="_blank" rel="noopener">Launch Services Keys</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/20001431-108256" target="_blank" rel="noopener">Launch Services Keys</a> <a href="#fnref4" class="footnote-backref">↩︎</a> <a href="#fnref4:1" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p><a href="https://apple.stackexchange.com/questions/130390/hide-adium-or-any-other-apps-icon-in-the-dock" target="_blank" rel="noopener">macos - Hide Adium (or any other app’s) icon in the dock - Ask Different</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p></li><li id="fn6" class="footnote-item"><p><a href="https://apple.stackexchange.com/questions/130390/hide-adium-or-any-other-apps-icon-in-the-dock/131136#131136" target="_blank" rel="noopener">macos - Hide Adium (or any other app’s) icon in the dock - Ask Different</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;综合设置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#综合设置&quot;&gt;&lt;/a&gt; 综合设置&lt;/h2&gt;
-&lt;h3 id=&quot;只显示已打开应用&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#只显示已打开应用&quot;&gt;&lt;/a&gt; 
-      
-    
-    </summary>
-    
-      <category term="Mac" scheme="https://hmgqzx.github.io/wiki/categories/Mac/"/>
     
     
   </entry>
@@ -342,38 +316,6 @@
   </entry>
   
   <entry>
-    <title>19.6 控制结构与复杂度</title>
-    <link href="https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.6%20%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
-    <id>https://hmgqzx.github.io/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/</id>
-    <published>2018-03-01T18:13:19.000Z</published>
-    <updated>2018-03-01T18:13:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>如果控制流不是影响复杂度的最大因素，那么至少也是最大的因素之一</p></blockquote><h2 id="复杂度的重要性"><a class="markdownIt-Anchor" href="#复杂度的重要性"></a> 复杂度的重要性</h2><p>参考[[……]]</p><h2 id="如何衡量复杂度"><a class="markdownIt-Anchor" href="#如何衡量复杂度"></a> 如何衡量复杂度</h2><h3 id="利用决策点decision-point数量"><a class="markdownIt-Anchor" href="#利用决策点decision-point数量"></a> 利用决策点（decision point）数量</h3><p>最著名的方法，源自 Tom McCabe。又称[[圈复杂度]]</p><p>具体操作：</p><ul><li>计数从 1 开始，一直往下阅读程序</li><li>一旦遇到如下关键字（或其他同性质的词），就加 1：<ul><li>if、while、repeat、for、and、or</li></ul></li><li>对 case 语句中的每一种情况都加 1</li></ul><p>对照下表：</p><table><thead><tr><th>子程序中的决策点数量</th><th>结论</th></tr></thead><tbody><tr><td>1 ~ 5</td><td>子程序可能还不错，起码不复杂</td></tr><tr><td>6 ~ 10</td><td>得想办法简化子程序了</td></tr><tr><td>10 +</td><td>应该将这个子程序的某一部分改写为另一个子程序再调用它</td></tr></tbody></table><p>关于上限：</p><p>10 个决策点的上限并不是绝对的（如 flask8 推荐上限是12 ），而是应该把决策点的数量当做警示。当警示出现时，就要仔细考虑子程序是否真的过于复杂、是否需要重新设计了</p><h3 id="其他衡量手段"><a class="markdownIt-Anchor" href="#其他衡量手段"></a> 其他衡量手段</h3><h4 id="智力实体数量"><a class="markdownIt-Anchor" href="#智力实体数量"></a> 智力实体数量</h4><p>为了理解应用程序，你必须在同一时间记住的智力实体的数量</p><h4 id="所用的数据量"><a class="markdownIt-Anchor" href="#所用的数据量"></a> 所用的数据量</h4><p>？？</p><h4 id="控制结构中的嵌套层数"><a class="markdownIt-Anchor" href="#控制结构中的嵌套层数"></a> 控制结构中的嵌套层数</h4><p><code>toWrite</code></p><h4 id="代码行数"><a class="markdownIt-Anchor" href="#代码行数"></a> 代码行数</h4><p><code>toWrite</code></p><h4 id="同一变量的跨度"><a class="markdownIt-Anchor" href="#同一变量的跨度"></a> 同一变量的跨度</h4><p><code>toNote</code></p><h4 id="变量的生存期"><a class="markdownIt-Anchor" href="#变量的生存期"></a> 变量的生存期</h4><p><code>toNote</code></p><h4 id="输入和输出的量"><a class="markdownIt-Anchor" href="#输入和输出的量"></a> 输入和输出的量</h4><p>？？</p><h3 id="延伸"><a class="markdownIt-Anchor" href="#延伸"></a> 延伸</h3><p>python 中的 flask8 可以用来衡量圈复杂度</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;如果控制流不是影响复杂度的最大因素，那么至少也是最大的因素之一&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;复杂度的重要性&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#复杂度的重要性&quot;&gt;&lt;/a&gt; 复杂度的重要性
-      
-    
-    </summary>
-    
-      <category term="书籍阅读笔记" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="编程" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term=" Code Complete 代码大全" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/Code-Complete-%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/"/>
-    
-      <category term="Chapter 19 一般控制问题" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/Code-Complete-%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter-19-%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Pyenv —— Python版本管理工具</title>
     <link href="https://hmgqzx.github.io/wiki/Python/Python%20%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
     <id>https://hmgqzx.github.io/wiki/Python/Python 虚拟环境/</id>
@@ -507,6 +449,54 @@
     </summary>
     
       <category term="Zsh" scheme="https://hmgqzx.github.io/wiki/categories/Zsh/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SSH</title>
+    <link href="https://hmgqzx.github.io/wiki/Unix/ssh/"/>
+    <id>https://hmgqzx.github.io/wiki/Unix/ssh/</id>
+    <published>2018-03-01T18:13:19.000Z</published>
+    <updated>2018-03-01T18:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>全称为 Secure Shell，是一项创建在应用层和传输层基础上的<strong>安全协议</strong>，为计算机上的Shell（壳层）提供安全的传输和使用环境。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><p>其优点是安全可靠（目前），传输的数据可以是经过压缩的<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p><h2 id="基本操作"><a class="markdownIt-Anchor" href="#基本操作"></a> 基本操作</h2><h3 id="登录"><a class="markdownIt-Anchor" href="#登录"></a> 登录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh &lt;user-name&gt;@&lt;host&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 示例</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh pipi@192.168.13.202</span></span><br></pre></td></tr></table></figure><h3 id="关闭连接"><a class="markdownIt-Anchor" href="#关闭连接"></a> 关闭连接</h3><p>关闭与对方的连接：直接输入<code>exit</code> 即可</p><h2 id="其他操作"><a class="markdownIt-Anchor" href="#其他操作"></a> 其他操作</h2><h3 id="修改端口"><a class="markdownIt-Anchor" href="#修改端口"></a> 修改端口</h3><p>默认端口是22，使用 p 参数（port）可以修改端口</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -p &lt;port&gt; &lt;user-name&gt;@&lt;host&gt; </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 示例</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -p 2222 pipi@192.168.13.202</span></span><br></pre></td></tr></table></figure><h3 id="端口转发"><a class="markdownIt-Anchor" href="#端口转发"></a> 端口转发</h3><p>参考<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p><h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2><p>请参考<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p><h2 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h2><h3 id="warning-remote-host-identification-has-changed"><a class="markdownIt-Anchor" href="#warning-remote-host-identification-has-changed"></a> WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</h3><p>场景：一次我将树莓派 A 的 sd 卡拆下，装到另一台树莓派 B 上后，连接树莓派 B 就出现这个警告</p><p>解决方法：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -R <span class="string">"you server hostname or ip"</span></span></span><br></pre></td></tr></table></figure><p>原因：</p><p>在第一次 ssh 连接远程服务器时，会生成一个认证，保存在本地这边的 known_hosts。出现这个错误时，只要重新 key generate 就好<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p><h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2><h3 id="我还没仔细看的"><a class="markdownIt-Anchor" href="#我还没仔细看的"></a> 我还没仔细看的</h3><ul><li>一篇很详细的 tutorial <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></li></ul><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">Secure Shell - 维基百科，自由的百科全书</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="noopener">SSH原理与运用（二）：远程操作与端口转发 - 阮一峰的网络日志</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH原理与运用（一）：远程登录 - 阮一峰的网络日志</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p><a href="https://blog.allenchou.cc/warning-remote-host-identification-has-changed/" target="_blank" rel="noopener">SSH連現時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」解決辦法 | 電腦故我在</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p><a href="https://support.suso.com/supki/SSH_Tutorial_for_Linux" target="_blank" rel="noopener">SSH Tutorial for Linux - Support Documentation</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;全称为 Secure Shell，是一项创建在应用层和传输层基础上的&lt;strong&gt;安全协议&lt;/strong&gt;，为计算机上的Shell（壳层）提供安全的传输和使用环境。&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="Unix" scheme="https://hmgqzx.github.io/wiki/categories/Unix/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodePPT —— 自动化生成 PPT</title>
+    <link href="https://hmgqzx.github.io/wiki/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/nodePPT/"/>
+    <id>https://hmgqzx.github.io/wiki/其他工具/nodePPT/</id>
+    <published>2018-03-01T18:13:19.000Z</published>
+    <updated>2018-03-01T18:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前每当要做一个 PPT 时，内心是十分抗拒的，因为要靠鼠标拖来拖去！</p><p>而 nodePPT 让我不再烦恼这个问题，现在只需书写一份 MarkDown，在其中指定样式、效果，即可生成一份 PPT</p><p>详细参考项目主页：<a href="https://github.com/ksky521/nodePPT" target="_blank" rel="noopener">GitHub - ksky521/nodePPT: This is probably the best web presentation tool so far!</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之前每当要做一个 PPT 时，内心是十分抗拒的，因为要靠鼠标拖来拖去！&lt;/p&gt;
+&lt;p&gt;而 nodePPT 让我不再烦恼这个问题，现在只需书写一份 MarkDown，在其中指定样式、效果，即可生成一份 PPT&lt;/p&gt;
+&lt;p&gt;详细参考项目主页：&lt;a href=&quot;https://
+      
+    
+    </summary>
+    
+      <category term="其他工具" scheme="https://hmgqzx.github.io/wiki/categories/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
