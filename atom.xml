@@ -6,7 +6,7 @@
   <link href="/wiki/atom.xml" rel="self"/>
   
   <link href="https://hmgqzx.github.io/wiki/"/>
-  <updated>2018-03-01T18:13:19.000Z</updated>
+  <updated>2018-05-11T07:32:41.000Z</updated>
   <id>https://hmgqzx.github.io/wiki/</id>
   
   <author>
@@ -17,26 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>有限状态机 FSM</title>
-    <link href="https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/"/>
-    <id>https://hmgqzx.github.io/wiki/42/有限状态机/</id>
-    <published>2018-03-01T18:13:19.000Z</published>
-    <updated>2018-03-01T18:13:19.000Z</updated>
+    <title>抓包工具 Wireshark</title>
+    <link href="https://hmgqzx.github.io/wiki/Network/Wireshark/"/>
+    <id>https://hmgqzx.github.io/wiki/Network/Wireshark/</id>
+    <published>2018-05-11T07:32:35.000Z</published>
+    <updated>2018-05-11T07:32:41.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://image.beekka.com/blog/201309/bg2013090201.png" alt="img"></p><h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2><p>有限状态机（Finite-state machine）是一种用来进行对象行为建模的工具，其作用主要是描述对象在它的生命周期内所经历的状态序列，以及如何响应来自外界的各种事件。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><h2 id="特征"><a class="markdownIt-Anchor" href="#特征"></a> 特征</h2><p>简单说，它有三个特征<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p><ul><li>状态总数（state）是有限的。</li><li>任一时刻，只处在一种状态之中。</li><li>某种条件下，会从一种状态转变（transition）到另一种状态。</li></ul><h2 id="几个重要概念"><a class="markdownIt-Anchor" href="#几个重要概念"></a> 几个重要概念<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2><ul><li>状态（State）：表示对象的某种形态，在当前形态下可能会拥有不同的行为和属性。</li><li>转移（Transition）：表示状态变更，并且必须满足确使转移发生的条件来执行。</li><li>动作（Action）：表示在给定时刻要进行的活动。</li><li>事件（Event）：事件通常会引起状态的变迁，促使状态机从一种状态切换到另一种状态。</li></ul><h2 id="状态机的要素"><a class="markdownIt-Anchor" href="#状态机的要素"></a> 状态机的要素<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></h2><p>状态机可归纳为4个要素，即现态、条件、动作、次态。“现态”和“条件”是因，“动作”和“次态”是果。详解如下：</p><ul><li>现态：当前所处的状态。</li><li>条件：又称为“事件”。当一个条件被满足，将会触发一个动作，或者执行一次状态的迁移。</li><li>动作：条件满足后执行的动作。动作执行完毕后，可以迁移到新的状态，也可以仍旧保持原状态。动作不是必需的，当条件满足后，也可以不执行任何动作，直接迁移到新状态。</li><li><mark>次态</mark>：条件满足后要迁往的新状态。“次态”是相对于“现态”而言的，“次态”一旦被激活，就转变成新的“现态”了。</li></ul><p>我们可以用状态表了表示整个过程，如下图所示。</p><blockquote><p>状态表</p><p><img src="http://upload-images.jianshu.io/upload_images/1133568-8bedb833289081b7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p></blockquote><h2 id="注意的问题"><a class="markdownIt-Anchor" href="#注意的问题"></a> 注意的问题</h2><p><strong>避免把某个“程序动作”当作是一种“状态”来处理</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup></p><p>那么如何区分“动作”和“状态”？“动作”是不稳定的，即使没有条件的触发，“动作”一旦执行完毕就结束了；<mark>而“状态”是相对稳定的</mark>，如果没有外部条件的触发，一个状态会一直持续下去。</p><h2 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h2><h3 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h3><p>有限状态机用来编游戏和故事是最好的了。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>这有一个寻宝游戏，首先你从‘开始’出发，然后你跟随箭头知道你到达终点。</p><p><img src="http://www.programmingbasics.org/zh/beginner/img/fsm3.png" alt="img"></p><h2 id="褒扬和批判"><a class="markdownIt-Anchor" href="#褒扬和批判"></a> 褒扬和批判</h2><h3 id="游戏开发"><a class="markdownIt-Anchor" href="#游戏开发"></a> 游戏开发</h3><p>在游戏开发中使用状态机显然不失为一种不错的选择，首先它的概念并不复杂，其次它的实现也十分简单而直接。但它的缺点却也十分明显，例如难以复用，因为它往往需要根据具体的情况来做出反应，当然当状态机的模型复杂到一定的程度之后，也会带来实现和维护上的困难。<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></p><h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2><p>参考：<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p><p>代码相关：<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup></p><blockquote><p>对JavaScript的意义在于，很多对象可以写成有限状态机。</p></blockquote><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="http://www.jianshu.com/p/5eb45c64f3e3" target="_blank" rel="noopener">深入浅出理解有限状态机 - 简书</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2013/09/finite-state_machine_for_javascript.html" target="_blank" rel="noopener">JavaScript与有限状态机 - 阮一峰的网络日志</a> <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="https://segmentfault.com/a/1190000004241958" target="_blank" rel="noopener">趣说游戏AI开发：对状态机的褒扬和批判 - Runtime - SegmentFault</a> <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p><a href="http://www.programmingbasics.org/zh/beginner/fsm.html" target="_blank" rel="noopener">Programming Basics: 有限状态机</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA" target="_blank" rel="noopener">有限状态机 - 维基百科，自由的百科全书</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    <content type="html"><![CDATA[<h2 id="文档"><a class="markdownIt-Anchor" href="#文档"></a> 文档</h2><p><a href="https://www.wireshark.org/docs/wsug_html_chunked/" target="_blank" rel="noopener">Wireshark User’s Guide</a> 官方文档</p><h3 id="其他较详细的资料"><a class="markdownIt-Anchor" href="#其他较详细的资料"></a> 其他较详细的资料</h3><p><a href="https://community.emc.com/thread/194901" target="_blank" rel="noopener">EMC Community Network - DECN: 如果看了这个你还是不会用Wireshark，那就来找我吧（8月6日完结）</a> 较老，windows 版，但本质不变</p><h2 id="颜色"><a class="markdownIt-Anchor" href="#颜色"></a> 颜色</h2><p>绿色是TCP报文，深蓝色是DNS，浅蓝是UDP，黑色标识出有问题的TCP报文——比如乱序报文</p><h2 id="过滤器"><a class="markdownIt-Anchor" href="#过滤器"></a> 过滤器</h2><p>icmp</p><p>ip.addr (目标、源)</p><h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2><p>“追踪流”</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;http://image.beekka.com/blog/201309/bg2013090201.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#定义&quot;&gt;&lt;/a&gt; 定
+        &lt;h2 id=&quot;文档&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#文档&quot;&gt;&lt;/a&gt; 文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wireshark.org/docs/wsug_html_chunked/&quot; target=&quot;_bla
       
     
     </summary>
     
-      <category term="42" scheme="https://hmgqzx.github.io/wiki/categories/42/"/>
+      <category term="Network" scheme="https://hmgqzx.github.io/wiki/categories/Network/"/>
     
+    
+      <category term="未整理" scheme="https://hmgqzx.github.io/wiki/tags/%E6%9C%AA%E6%95%B4%E7%90%86/"/>
     
   </entry>
   
@@ -64,6 +66,30 @@
       <category term="Python" scheme="https://hmgqzx.github.io/wiki/categories/Python/"/>
     
       <category term="模块用法" scheme="https://hmgqzx.github.io/wiki/categories/Python/%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git 的学习资源</title>
+    <link href="https://hmgqzx.github.io/wiki/Git/Git-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    <id>https://hmgqzx.github.io/wiki/Git/Git-学习资源/</id>
+    <published>2018-03-01T18:13:19.000Z</published>
+    <updated>2018-03-01T18:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="快速的简单入门"><a class="markdownIt-Anchor" href="#快速的简单入门"></a> 快速的简单入门</h2><h3 id="git-使用简易指南"><a class="markdownIt-Anchor" href="#git-使用简易指南"></a> git 使用简易指南<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h3><p>清晰、排版漂亮，包含了常用的一些基本操作</p><h2 id="研习"><a class="markdownIt-Anchor" href="#研习"></a> 研习</h2><h3 id="pro-git"><a class="markdownIt-Anchor" href="#pro-git"></a> Pro Git<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h3><p>Git官方推荐书籍，值得认真阅读一遍；并且由于项目开源、有大量人员参与，中文翻译质量也很高</p><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git 使用简易指南</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Pro Git - Book - 中文版 </a> <a href="#fnref2" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;快速的简单入门&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#快速的简单入门&quot;&gt;&lt;/a&gt; 快速的简单入门&lt;/h2&gt;
+&lt;h3 id=&quot;git-使用简易指南&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#git-
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://hmgqzx.github.io/wiki/categories/Git/"/>
     
     
   </entry>
@@ -316,6 +342,38 @@
   </entry>
   
   <entry>
+    <title>19.6 控制结构与复杂度</title>
+    <link href="https://hmgqzx.github.io/wiki/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/%20Code%20Complete%20%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter%2019%20%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/19.6%20%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
+    <id>https://hmgqzx.github.io/wiki/书籍阅读笔记/编程/ Code Complete 代码大全/Chapter 19 一般控制问题/19.6 控制结构与复杂度/</id>
+    <published>2018-03-01T18:13:19.000Z</published>
+    <updated>2018-03-01T18:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>如果控制流不是影响复杂度的最大因素，那么至少也是最大的因素之一</p></blockquote><h2 id="复杂度的重要性"><a class="markdownIt-Anchor" href="#复杂度的重要性"></a> 复杂度的重要性</h2><p>参考[[……]]</p><h2 id="如何衡量复杂度"><a class="markdownIt-Anchor" href="#如何衡量复杂度"></a> 如何衡量复杂度</h2><h3 id="利用决策点decision-point数量"><a class="markdownIt-Anchor" href="#利用决策点decision-point数量"></a> 利用决策点（decision point）数量</h3><p>最著名的方法，源自 Tom McCabe。又称[[圈复杂度]]</p><p>具体操作：</p><ul><li>计数从 1 开始，一直往下阅读程序</li><li>一旦遇到如下关键字（或其他同性质的词），就加 1：<ul><li>if、while、repeat、for、and、or</li></ul></li><li>对 case 语句中的每一种情况都加 1</li></ul><p>对照下表：</p><table><thead><tr><th>子程序中的决策点数量</th><th>结论</th></tr></thead><tbody><tr><td>1 ~ 5</td><td>子程序可能还不错，起码不复杂</td></tr><tr><td>6 ~ 10</td><td>得想办法简化子程序了</td></tr><tr><td>10 +</td><td>应该将这个子程序的某一部分改写为另一个子程序再调用它</td></tr></tbody></table><p>关于上限：</p><p>10 个决策点的上限并不是绝对的（如 flask8 推荐上限是12 ），而是应该把决策点的数量当做警示。当警示出现时，就要仔细考虑子程序是否真的过于复杂、是否需要重新设计了</p><h3 id="其他衡量手段"><a class="markdownIt-Anchor" href="#其他衡量手段"></a> 其他衡量手段</h3><h4 id="智力实体数量"><a class="markdownIt-Anchor" href="#智力实体数量"></a> 智力实体数量</h4><p>为了理解应用程序，你必须在同一时间记住的智力实体的数量</p><h4 id="所用的数据量"><a class="markdownIt-Anchor" href="#所用的数据量"></a> 所用的数据量</h4><p>？？</p><h4 id="控制结构中的嵌套层数"><a class="markdownIt-Anchor" href="#控制结构中的嵌套层数"></a> 控制结构中的嵌套层数</h4><p><code>toWrite</code></p><h4 id="代码行数"><a class="markdownIt-Anchor" href="#代码行数"></a> 代码行数</h4><p><code>toWrite</code></p><h4 id="同一变量的跨度"><a class="markdownIt-Anchor" href="#同一变量的跨度"></a> 同一变量的跨度</h4><p><code>toNote</code></p><h4 id="变量的生存期"><a class="markdownIt-Anchor" href="#变量的生存期"></a> 变量的生存期</h4><p><code>toNote</code></p><h4 id="输入和输出的量"><a class="markdownIt-Anchor" href="#输入和输出的量"></a> 输入和输出的量</h4><p>？？</p><h3 id="延伸"><a class="markdownIt-Anchor" href="#延伸"></a> 延伸</h3><p>python 中的 flask8 可以用来衡量圈复杂度</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;如果控制流不是影响复杂度的最大因素，那么至少也是最大的因素之一&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;复杂度的重要性&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#复杂度的重要性&quot;&gt;&lt;/a&gt; 复杂度的重要性
+      
+    
+    </summary>
+    
+      <category term="书籍阅读笔记" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="编程" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term=" Code Complete 代码大全" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/Code-Complete-%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/"/>
+    
+      <category term="Chapter 19 一般控制问题" scheme="https://hmgqzx.github.io/wiki/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%BC%96%E7%A8%8B/Code-Complete-%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/Chapter-19-%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Pyenv —— Python版本管理工具</title>
     <link href="https://hmgqzx.github.io/wiki/Python/Python%20%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
     <id>https://hmgqzx.github.io/wiki/Python/Python 虚拟环境/</id>
@@ -449,54 +507,6 @@
     </summary>
     
       <category term="Zsh" scheme="https://hmgqzx.github.io/wiki/categories/Zsh/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SSH</title>
-    <link href="https://hmgqzx.github.io/wiki/Unix/ssh/"/>
-    <id>https://hmgqzx.github.io/wiki/Unix/ssh/</id>
-    <published>2018-03-01T18:13:19.000Z</published>
-    <updated>2018-03-01T18:13:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>全称为 Secure Shell，是一项创建在应用层和传输层基础上的<strong>安全协议</strong>，为计算机上的Shell（壳层）提供安全的传输和使用环境。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p><p>其优点是安全可靠（目前），传输的数据可以是经过压缩的<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p><h2 id="基本操作"><a class="markdownIt-Anchor" href="#基本操作"></a> 基本操作</h2><h3 id="登录"><a class="markdownIt-Anchor" href="#登录"></a> 登录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh &lt;user-name&gt;@&lt;host&gt;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 示例</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh pipi@192.168.13.202</span></span><br></pre></td></tr></table></figure><h3 id="关闭连接"><a class="markdownIt-Anchor" href="#关闭连接"></a> 关闭连接</h3><p>关闭与对方的连接：直接输入<code>exit</code> 即可</p><h2 id="其他操作"><a class="markdownIt-Anchor" href="#其他操作"></a> 其他操作</h2><h3 id="修改端口"><a class="markdownIt-Anchor" href="#修改端口"></a> 修改端口</h3><p>默认端口是22，使用 p 参数（port）可以修改端口</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -p &lt;port&gt; &lt;user-name&gt;@&lt;host&gt; </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 示例</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -p 2222 pipi@192.168.13.202</span></span><br></pre></td></tr></table></figure><h3 id="端口转发"><a class="markdownIt-Anchor" href="#端口转发"></a> 端口转发</h3><p>参考<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p><h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2><p>请参考<sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p><h2 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h2><h3 id="warning-remote-host-identification-has-changed"><a class="markdownIt-Anchor" href="#warning-remote-host-identification-has-changed"></a> WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</h3><p>场景：一次我将树莓派 A 的 sd 卡拆下，装到另一台树莓派 B 上后，连接树莓派 B 就出现这个警告</p><p>解决方法：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -R <span class="string">"you server hostname or ip"</span></span></span><br></pre></td></tr></table></figure><p>原因：</p><p>在第一次 ssh 连接远程服务器时，会生成一个认证，保存在本地这边的 known_hosts。出现这个错误时，只要重新 key generate 就好<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p><h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2><h3 id="我还没仔细看的"><a class="markdownIt-Anchor" href="#我还没仔细看的"></a> 我还没仔细看的</h3><ul><li>一篇很详细的 tutorial <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></li></ul><h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">Secure Shell - 维基百科，自由的百科全书</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a></p></li><li id="fn2" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="noopener">SSH原理与运用（二）：远程操作与端口转发 - 阮一峰的网络日志</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p></li><li id="fn3" class="footnote-item"><p><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH原理与运用（一）：远程登录 - 阮一峰的网络日志</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p></li><li id="fn4" class="footnote-item"><p><a href="https://blog.allenchou.cc/warning-remote-host-identification-has-changed/" target="_blank" rel="noopener">SSH連現時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」解決辦法 | 電腦故我在</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p></li><li id="fn5" class="footnote-item"><p><a href="https://support.suso.com/supki/SSH_Tutorial_for_Linux" target="_blank" rel="noopener">SSH Tutorial for Linux - Support Documentation</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;全称为 Secure Shell，是一项创建在应用层和传输层基础上的&lt;strong&gt;安全协议&lt;/strong&gt;，为计算机上的Shell（壳层）提供安全的传输和使用环境。&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="Unix" scheme="https://hmgqzx.github.io/wiki/categories/Unix/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nodePPT —— 自动化生成 PPT</title>
-    <link href="https://hmgqzx.github.io/wiki/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/nodePPT/"/>
-    <id>https://hmgqzx.github.io/wiki/其他工具/nodePPT/</id>
-    <published>2018-03-01T18:13:19.000Z</published>
-    <updated>2018-03-01T18:13:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前每当要做一个 PPT 时，内心是十分抗拒的，因为要靠鼠标拖来拖去！</p><p>而 nodePPT 让我不再烦恼这个问题，现在只需书写一份 MarkDown，在其中指定样式、效果，即可生成一份 PPT</p><p>详细参考项目主页：<a href="https://github.com/ksky521/nodePPT" target="_blank" rel="noopener">GitHub - ksky521/nodePPT: This is probably the best web presentation tool so far!</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;之前每当要做一个 PPT 时，内心是十分抗拒的，因为要靠鼠标拖来拖去！&lt;/p&gt;
-&lt;p&gt;而 nodePPT 让我不再烦恼这个问题，现在只需书写一份 MarkDown，在其中指定样式、效果，即可生成一份 PPT&lt;/p&gt;
-&lt;p&gt;详细参考项目主页：&lt;a href=&quot;https://
-      
-    
-    </summary>
-    
-      <category term="其他工具" scheme="https://hmgqzx.github.io/wiki/categories/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
