@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hmgqzx.github.io/wiki/%E5%BF%83%E7%90%86%E5%AD%A6/%E5%93%88%E4%BD%9B%E5%B9%B8%E7%A6%8F%E8%AF%BE/%E5%AD%97%E5%B9%95%E5%86%85%E5%AE%B9/%E7%AC%AC%E5%8D%81%E8%AE%B2/</loc>
+    
+    <lastmod>2018-05-13T08:46:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E5%BF%83%E7%90%86%E5%AD%A6/%E5%93%88%E4%BD%9B%E5%B9%B8%E7%A6%8F%E8%AF%BE/%E6%9C%AD%E8%AE%B0/%E7%AC%AC%E5%8D%81%E8%AE%B2/</loc>
+    
+    <lastmod>2018-05-13T08:44:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/%E5%BF%83%E7%90%86%E5%AD%A6/%E5%93%88%E4%BD%9B%E5%B9%B8%E7%A6%8F%E8%AF%BE/%E6%9C%AD%E8%AE%B0/index/</loc>
+    
+    <lastmod>2018-05-13T08:44:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hmgqzx.github.io/wiki/Hexo/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</loc>
     
     <lastmod>2018-05-13T06:22:33.000Z</lastmod>
@@ -58,21 +79,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E6%84%9F%E5%86%92/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Mac/QuickLook%20%E9%A2%84%E8%A7%88%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E5%B8%B8%E9%87%8F/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/abs/Plank/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -80,13 +87,6 @@
   
   <url>
     <loc>https://hmgqzx.github.io/wiki/Mac/homebrew/</loc>
-    
-    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -261,7 +261,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Zsh/%E6%8F%92%E4%BB%B6/autojump/</loc>
+    <loc>https://hmgqzx.github.io/wiki/42/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -275,7 +275,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Mac/dotfiles/</loc>
+    <loc>https://hmgqzx.github.io/wiki/%E7%94%9F%E6%B4%BB/%E6%84%9F%E5%86%92/%E6%84%9F%E5%86%92/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -296,7 +296,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/%E5%81%A5%E8%BA%AB/%E5%8A%A8%E4%BD%9C/abs/Plank/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
@@ -450,6 +450,27 @@
   </url>
   
   <url>
+    <loc>https://hmgqzx.github.io/wiki/Python/Python%20%E5%B8%B8%E9%87%8F/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/Mac/dotfiles/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hmgqzx.github.io/wiki/Mac/QuickLook%20%E9%A2%84%E8%A7%88%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6/</loc>
+    
+    <lastmod>2018-03-01T18:13:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hmgqzx.github.io/wiki/Mac/Mac%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
@@ -492,7 +513,7 @@
   </url>
   
   <url>
-    <loc>https://hmgqzx.github.io/wiki/Sublime%20Text/%E6%8F%92%E4%BB%B6/Sublime%20Text%20%E6%8F%92%E4%BB%B6/</loc>
+    <loc>https://hmgqzx.github.io/wiki/Zsh/%E6%8F%92%E4%BB%B6/autojump/</loc>
     
     <lastmod>2018-03-01T18:13:19.000Z</lastmod>
     
